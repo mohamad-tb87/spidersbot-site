@@ -1,0 +1,42 @@
+# ===== سبايدرز بوت — الموقع التسويقي الثابت (public_html الجذر) =====
+# ملاحظة: مجلد app.spidersbot.com له .htaccess خاص به ولا يتأثّر بهذا الملف
+# (النطاق الفرعي app.spidersbot.com جذره ذلك المجلد مباشرةً).
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # لا تلمس مجلد التطبيق إن وُصل عبر مسار النطاق الرئيسي
+  RewriteRule ^app\.spidersbot\.com/ - [L]
+
+  # فرض HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # روابط نظيفة: /privacy يقدّم privacy.html (والملف الحقيقي .html يبقى يعمل أيضاً)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# ضغط
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml
+</IfModule>
+
+# كاش الأصول
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png  "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css   "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# صفحة 404 (اختياري: أنشئ 404.html إن رغبت)
+# ErrorDocument 404 /404.html

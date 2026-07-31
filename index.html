@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سبايدرز بوت | أتمتة واتساب وماسنجر ومتجر شات ومبيعات</title>
+<meta name="description" content="أتمتة محادثات واتساب وماسنجر وإنستغرام بلا كود، متجر داخل الشات بالدفع عند الاستلام، وحملات تسويقية ذكية. جرّب سبايدرز بوت مجاناً 7 أيام بدون بطاقة.">
+<meta name="keywords" content="سبايدرز بوت, أتمتة واتساب, واتساب Cloud API, شات بوت, أتمتة ماسنجر, أتمتة إنستغرام, متجر واتساب, الدفع عند الاستلام, السلة المهجورة, منشئ التدفقات, وكيل ذكاء اصطناعي, حملات تسويق واتساب">
+<meta name="author" content="سبايدرز بوت">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#4F46E5">
+<link rel="canonical" href="https://spidersbot.com/">
+<link rel="alternate" hreflang="ar" href="https://spidersbot.com/">
+<link rel="alternate" hreflang="x-default" href="https://spidersbot.com/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="سبايدرز بوت | أتمتة واتساب وماسنجر ومتجر شات ومبيعات">
+<meta property="og:description" content="منصة واحدة تدير تواصلك ومبيعاتك وتسويقك: أتمتة بلا كود، متجر داخل الشات بالدفع عند الاستلام، وحملات ذكية. ابدأ مجاناً 7 أيام.">
+<meta property="og:url" content="https://spidersbot.com/">
+<meta property="og:image" content="https://spidersbot.com/assets/hero.jpg">
+<meta property="og:image:alt" content="أتمتة المحادثات عبر واتساب وماسنجر وإنستغرام تتحوّل إلى مبيعات">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:site_name" content="سبايدرز بوت">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="سبايدرز بوت | أتمتة واتساب وماسنجر ومتجر شات ومبيعات">
+<meta name="twitter:description" content="أتمتة محادثات واتساب وماسنجر وإنستغرام بلا كود، متجر داخل الشات بالدفع عند الاستلام، وحملات تسويقية ذكية. جرّب مجاناً 7 أيام.">
+<meta name="twitter:image" content="https://spidersbot.com/assets/hero.jpg">
+<meta name="twitter:image:alt" content="أتمتة المحادثات عبر واتساب وماسنجر وإنستغرام تتحوّل إلى مبيعات">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/spidersbot-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================= المتغيّرات العامة (عدّلها من هنا) ================= */
+:root{
+  --indigo:#4F46E5;
+  --indigo-d:#4338CA;
+  --violet:#7c3aed;
+  --ink:#0f1222;
+  --body:#3b3f52;
+  --muted:#6b7185;
+  --line:#e9eaf2;
+  --bg:#ffffff;
+  --bg-soft:#f7f7fb;
+  --bg-soft2:#f2f1fb;
+  --card:#ffffff;
+  --white:#ffffff;
+  --green:#16a34a;
+  --wa:#25D366;
+  --radius:20px;
+  --radius-sm:12px;
+  --shadow:0 10px 40px -12px rgba(24,20,66,.16);
+  --shadow-soft:0 6px 24px -10px rgba(24,20,66,.14);
+  --grad:linear-gradient(135deg,var(--indigo),var(--violet));
+  --maxw:1180px;
+  --font:'IBM Plex Sans Arabic',system-ui,-apple-system,Segoe UI,Tahoma,sans-serif;
+}
+/* ================= إعادة الضبط ================= */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);color:var(--body);background:var(--bg);
+  line-height:1.85;font-size:16.5px;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+h1,h2,h3,h4{color:var(--ink);line-height:1.35;font-weight:700}
+section{position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-block;font-size:.82rem;font-weight:600;color:var(--indigo);
+  background:var(--bg-soft2);padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;
+  font-family:var(--font);font-weight:600;font-size:1rem;cursor:pointer;border:none;
+  padding:13px 26px;border-radius:12px;transition:.22s;white-space:nowrap}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 26px -8px rgba(79,70,229,.55)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 32px -8px rgba(79,70,229,.6)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--indigo);color:var(--indigo)}
+.btn-lg{padding:16px 34px;font-size:1.06rem}
+
+/* ================= الهيدر الزجاجي الثابت ================= */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.24rem;color:var(--ink)}
+.logo .sp{width:40px;height:40px;object-fit:contain;display:block}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-weight:500;color:var(--body);font-size:.98rem;transition:.2s}
+.nav-links a:hover{color:var(--indigo)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-cta .login{font-weight:600;color:var(--ink)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2.5px;background:var(--ink);border-radius:2px;transition:.3s}
+
+/* ================= الهيرو ================= */
+.hero{padding:72px 0 40px;background:
+  radial-gradient(60% 55% at 85% 0%,rgba(124,58,237,.10),transparent 60%),
+  radial-gradient(55% 60% at 10% 20%,rgba(79,70,229,.10),transparent 60%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.hero h1{font-size:3.05rem;line-height:1.28;letter-spacing:-.5px}
+.hero h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:1.16rem;color:var(--muted);margin:22px 0 30px;max-width:560px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.trust-note{margin-top:20px;font-size:.93rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.trust-note b{color:var(--green)}
+
+/* واجهة منتج وهمية عامة (إطار متصفّح + هاتف) */
+.mock-browser{background:#fff;border-radius:18px;box-shadow:var(--shadow);
+  border:1px solid var(--line);overflow:hidden}
+.mock-bar{display:flex;align-items:center;gap:7px;padding:12px 14px;background:#fbfbfd;border-bottom:1px solid var(--line)}
+.mock-bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.mock-bar .r{background:#ff5f57}.mock-bar .y{background:#febc2e}.mock-bar .g{background:#28c840}
+.mock-bar .url{margin-inline-start:10px;font-size:.75rem;color:var(--muted);background:#fff;
+  border:1px solid var(--line);border-radius:7px;padding:3px 12px}
+.mock-body{padding:18px}
+
+/* صور توضيحية (تصاميم ChatGPT بألوان الهوية) */
+.ill{width:100%;height:auto;display:block;border-radius:22px}
+.hero-visual .ill{filter:drop-shadow(0 24px 50px rgba(79,70,229,.18))}
+.pvis .ill{filter:drop-shadow(0 18px 40px rgba(79,70,229,.14))}
+
+/* فقاعات محادثة */
+.chat{display:flex;flex-direction:column;gap:12px}
+.bub{max-width:78%;padding:11px 15px;border-radius:16px;font-size:.92rem;line-height:1.6;box-shadow:var(--shadow-soft)}
+.bub.in{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-right-radius:5px}
+.bub.out{align-self:flex-end;background:var(--grad);color:#fff;border-bottom-left-radius:5px}
+.bub.wa{align-self:flex-end;background:var(--wa);color:#fff;border-bottom-left-radius:5px}
+.typing{align-self:flex-start;display:flex;gap:4px;background:#fff;border:1px solid var(--line);padding:12px 15px;border-radius:16px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#c3c6d4;animation:bl 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes bl{0%,60%,100%{opacity:.3}30%{opacity:1}}
+
+.hero-visual{position:relative}
+.hero-badge{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);
+  border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:.88rem;color:var(--ink)}
+.hero-badge .ic{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:1rem;color:#fff}
+.hb1{top:-18px;inset-inline-start:-22px;animation:fl 4s ease-in-out infinite}
+.hb2{bottom:-20px;inset-inline-end:-18px;animation:fl 4s ease-in-out infinite .8s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ================= شريط الثقة ================= */
+.trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft);padding:22px 0}
+.trust-strip .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 34px}
+.trust-strip .lbl{font-size:.85rem;color:var(--muted);font-weight:500}
+.trust-strip .chip{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink);
+  font-size:.95rem;opacity:.82}
+.trust-strip .chip .d{width:9px;height:9px;border-radius:50%}
+
+/* ================= أقسام الركائز ================= */
+.section{padding:78px 0}
+.pillar{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.pillar.rev .pcopy{order:2}.pillar.rev .pvis{order:1}
+.pillar h2{font-size:2.15rem;letter-spacing:-.4px;margin-bottom:14px}
+.pillar p.lead{font-size:1.08rem;color:var(--muted);margin-bottom:22px}
+.benefits{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:26px}
+.benefits li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;color:var(--body)}
+.benefits li .ck{flex:none;width:26px;height:26px;border-radius:8px;background:var(--bg-soft2);
+  color:var(--indigo);display:grid;place-items:center;font-size:.9rem;font-weight:700;margin-top:2px}
+.benefits li b{color:var(--ink);font-weight:600}
+.pvis{position:relative}
+.section-head{text-align:center;max-width:640px;margin:0 auto 52px}
+.section-head h2{font-size:2.25rem;letter-spacing:-.4px;margin-bottom:12px}
+.section-head p{font-size:1.08rem;color:var(--muted)}
+
+/* لوحة تحكّم وهمية (بلاطات) */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-soft)}
+.tile .k{font-size:.78rem;color:var(--muted)}
+.tile .v{font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-.5px}
+.tile .t{font-size:.75rem;color:var(--green);font-weight:600}
+.bars{display:flex;align-items:flex-end;gap:6px;height:56px;margin-top:8px}
+.bars i{flex:1;background:var(--grad);border-radius:5px 5px 0 0;display:block;opacity:.85}
+
+/* عقد بناء التدفّق */
+.flow{display:flex;flex-direction:column;gap:0}
+.node{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 15px;
+  box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:11px;font-size:.92rem;font-weight:500;color:var(--ink)}
+.node .dot{width:30px;height:30px;border-radius:8px;background:var(--bg-soft2);color:var(--indigo);
+  display:grid;place-items:center;font-size:.95rem;flex:none}
+.node.acc{background:var(--grad);color:#fff;border:none}
+.node.acc .dot{background:rgba(255,255,255,.22);color:#fff}
+.connector{width:2px;height:20px;background:var(--line);margin-inline-start:29px}
+
+/* بطاقة منتج للمتجر */
+.shop-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-soft)}
+.shop-card .ph{height:96px;background:linear-gradient(135deg,#eef0ff,#f5edff);display:grid;place-items:center;font-size:2.2rem}
+.shop-card .in{padding:12px 14px}
+.shop-card .nm{font-weight:600;color:var(--ink);font-size:.95rem}
+.shop-card .pr{color:var(--indigo);font-weight:700;margin-top:4px}
+.shop-card .ab{display:block;text-align:center;background:var(--grad);color:#fff;font-weight:600;
+  padding:8px;border-radius:9px;margin-top:10px;font-size:.85rem}
+
+/* ================= حالات الاستخدام ================= */
+.usecases{background:var(--bg-soft)}
+.uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.uc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;
+  transition:.25s;box-shadow:var(--shadow-soft)}
+.uc:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.uc{padding:0;overflow:hidden}
+.uc .uc-img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+.uc h3{margin:18px 22px 9px}
+.uc p{margin:0 22px 24px}
+.uc h3{font-size:1.16rem;margin-bottom:9px}
+.uc p{font-size:.95rem;color:var(--muted)}
+
+/* ================= شريط الإحصاءات ================= */
+.stats{background:var(--ink);color:#fff;padding:60px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat .num{font-size:2.9rem;font-weight:700;background:linear-gradient(135deg,#a5b4fc,#c4b5fd);
+  -webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+.stat .lb{color:#b8bcd4;font-size:.98rem;margin-top:4px}
+
+/* ================= شبكة المميزات ================= */
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 18px;transition:.22s;position:relative}
+.feat:hover{border-color:var(--indigo);transform:translateY(-4px);box-shadow:var(--shadow)}
+.feat .fi{width:48px;height:48px;border-radius:13px;background:linear-gradient(135deg,#eef0ff,#f3edff);
+  border:1px solid #eae7fb;display:grid;place-items:center;font-size:1.3rem;margin-bottom:13px;transition:.22s}
+.feat:hover .fi{transform:scale(1.06);box-shadow:0 8px 18px -8px rgba(79,70,229,.45)}
+.feat h3{font-size:1.02rem;margin-bottom:5px;font-weight:600}
+.feat p{font-size:.86rem;color:var(--muted);line-height:1.6}
+.feat-cta{text-align:center;margin-top:38px}
+.feat-cta .btn{padding:15px 34px}
+.feat-cta .note{display:block;margin-top:12px;font-size:.9rem;color:var(--muted)}
+
+/* ================= الأسعار ================= */
+.pricing{background:var(--bg-soft)}
+.price-toggles{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:44px}
+.toggle{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;gap:4px}
+.toggle button{border:none;background:none;font-family:var(--font);font-weight:600;font-size:.92rem;
+  padding:9px 22px;border-radius:999px;cursor:pointer;color:var(--muted);transition:.2s;position:relative}
+.toggle button.active{background:var(--grad);color:#fff}
+.save-tag{font-size:.78rem;color:var(--green);font-weight:600}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plan{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;
+  display:flex;flex-direction:column;position:relative;transition:.25s}
+.plan:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.plan.pop{border:2px solid var(--indigo);box-shadow:var(--shadow)}
+.plan .tag{position:absolute;top:-13px;inset-inline-start:50%;transform:translateX(50%);
+  background:var(--grad);color:#fff;font-size:.78rem;font-weight:600;padding:5px 16px;border-radius:999px}
+.plan .pn{font-size:1.3rem;font-weight:700;color:var(--ink)}
+.plan .pd{font-size:.9rem;color:var(--muted);margin:6px 0 18px;min-height:40px}
+.plan .price{display:flex;align-items:baseline;gap:6px}
+.plan .price .amt{font-size:2.6rem;font-weight:700;color:var(--ink);letter-spacing:-1px}
+.plan .price .per{color:var(--muted);font-size:.92rem}
+.plan .ynote{font-size:.8rem;color:var(--green);font-weight:600;min-height:20px;margin-top:6px}
+.plan ul{list-style:none;margin:22px 0;display:flex;flex-direction:column;gap:11px;flex:1}
+.plan ul li{display:flex;gap:9px;font-size:.92rem;color:var(--body)}
+.plan ul li .c{color:var(--indigo);font-weight:700;flex:none}
+.plan .btn{width:100%;margin-top:auto}
+
+/* ================= الآراء ================= */
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tst{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow-soft)}
+.tst .stars{color:#f5b301;margin-bottom:12px;letter-spacing:2px}
+.tst p{font-size:1rem;color:var(--body);margin-bottom:20px}
+.tst .who{display:flex;align-items:center;gap:12px}
+.tst .av{width:46px;height:46px;border-radius:50%;background:var(--grad);color:#fff;display:grid;
+  place-items:center;font-weight:700;font-size:1.05rem}
+.tst .who .nm{font-weight:600;color:var(--ink);font-size:.96rem}
+.tst .who .rl{font-size:.83rem;color:var(--muted)}
+
+/* ================= الأسئلة ================= */
+.faq-wrap{max-width:780px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-q{width:100%;text-align:right;background:none;border:none;font-family:var(--font);font-weight:600;
+  font-size:1.04rem;color:var(--ink);padding:19px 22px;cursor:pointer;display:flex;justify-content:space-between;
+  align-items:center;gap:14px}
+.faq-q .ar{transition:.3s;color:var(--indigo);font-size:1.3rem;flex:none}
+.faq-item.open .faq-q .ar{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:.98rem}
+.faq-a div{padding:0 22px 20px}
+
+/* ================= طرق الدفع + CTA + الفوتر ================= */
+.pay{text-align:center}
+.pay .methods{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.pay .pm{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 22px;
+  font-weight:600;color:var(--ink);font-size:.95rem;display:inline-flex;align-items:center;gap:9px}
+.finalcta{background:var(--grad);color:#fff;text-align:center;padding:76px 0}
+.finalcta h2{color:#fff;font-size:2.4rem;margin-bottom:14px;letter-spacing:-.5px}
+.finalcta p{font-size:1.14rem;opacity:.94;margin-bottom:30px}
+.finalcta .btn-primary{background:#fff;color:var(--indigo);box-shadow:0 12px 30px -8px rgba(0,0,0,.3)}
+.finalcta .note{margin-top:18px;font-size:.92rem;opacity:.85}
+footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+.foot-brand .logo{color:#fff;margin-bottom:14px}
+.foot-brand p{font-size:.92rem;color:#9aa0c0;max-width:320px}
+.foot-col h5{color:#fff;font-size:.98rem;margin-bottom:16px;font-weight:600}
+.foot-col a{display:block;font-size:.9rem;color:#9aa0c0;margin-bottom:10px;transition:.2s}
+.foot-col a:hover{color:#fff}
+.foot-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;
+  font-size:.87rem;color:#8288ab}
+
+/* ================= الاستجابة ================= */
+@media(max-width:960px){
+  .hero-grid,.pillar{grid-template-columns:1fr;gap:40px}
+  .pillar.rev .pcopy{order:1}.pillar.rev .pvis{order:2}
+  .hero h1{font-size:2.35rem}
+  .uc-grid,.feat-grid,.stats-grid{grid-template-columns:1fr 1fr}
+  .plans,.tst-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links,.nav-cta .login{display:none}
+  .burger{display:flex}
+  .nav-links.open{display:flex;position:absolute;top:70px;inset-inline:0;flex-direction:column;
+    background:#fff;padding:20px;gap:16px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+}
+@media(max-width:560px){
+  .uc-grid,.feat-grid,.stats-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.95rem}
+  .section{padding:56px 0}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"سبايدرز بوت","alternateName":"Spiders Bot","url":"https://spidersbot.com/","logo":"https://spidersbot.com/assets/spidersbot-logo.png","description":"منصة واحدة لأتمتة التواصل والتسويق والبيع عبر واتساب وماسنجر وإنستغرام.","sameAs":[]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"سبايدرز بوت","url":"https://spidersbot.com/","inLanguage":"ar"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"سبايدرز بوت","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://spidersbot.com/","description":"منصة أتمتة محادثات ومتجر داخل الشات وحملات تسويقية عبر واتساب وماسنجر وإنستغرام، مع منشئ تدفّقات بلا كود ووكلاء ذكاء اصطناعي.","inLanguage":"ar","offers":[{"@type":"Offer","name":"Basic","price":"19.00","priceCurrency":"USD","description":"لبداية قوية للأنشطة الصغيرة والأفراد.","url":"https://spidersbot.com/#pricing"},{"@type":"Offer","name":"Start","price":"49.00","priceCurrency":"USD","description":"للأنشطة النامية التي تبيع عبر المحادثات.","url":"https://spidersbot.com/#pricing"},{"@type":"Offer","name":"Turbo","price":"99.00","priceCurrency":"USD","description":"للأنشطة الكبيرة والفرق التي تحتاج كل شيء.","url":"https://spidersbot.com/#pricing"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"هل أحتاج خبرة برمجية لاستخدام المنصّة؟","acceptedAnswer":{"@type":"Answer","text":"إطلاقاً. كل شيء يُبنى بالسحب والإفلات عبر منشئ التدفّقات، ومعك قوالب جاهزة تنطلق بها خلال دقائق دون أي كود."}},{"@type":"Question","name":"هل واتساب المستخدم رسمي وآمن؟","acceptedAnswer":{"@type":"Answer","text":"نعم، نعتمد واتساب الرسمي عبر Cloud API بأرقامك وهوية علامتك التجارية، بما يحافظ على أمان حسابك واستقراره."}},{"@type":"Question","name":"هل يمكنني البيع مباشرة داخل المحادثة؟","acceptedAnswer":{"@type":"Answer","text":"نعم. تعرض منتجاتك، يضيفها العميل للسلة، ويؤكّد الطلب بالدفع عند الاستلام عبر واتساب — كل ذلك دون مغادرة الشات."}},{"@type":"Question","name":"كيف تعمل التجربة المجانية؟","acceptedAnswer":{"@type":"Answer","text":"تحصل على 7 أيام مجاناً بكامل المميزات، بدون بطاقة ائتمان وبدون التزام. يمكنك الترقية أو الإلغاء في أي وقت."}},{"@type":"Question","name":"هل أستطيع إدارة كل القنوات من مكان واحد؟","acceptedAnswer":{"@type":"Answer","text":"بالتأكيد. صندوق الوارد الموحّد يجمع واتساب وماسنجر وإنستغرام مع دردشة حيّة وتقارير وإدارة فريق بصلاحيات في لوحة واحدة."}}]}
+</script>
+</head>
+<body>
+
+<!-- ================= الهيدر ================= -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><img class="sp" width="40" height="40" src="assets/spidersbot-logo.png" alt="شعار سبايدرز بوت"> سبايدرز بوت</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">المميزات</a>
+      <a href="#solutions">الحلول</a>
+      <a href="#pricing">الأسعار</a>
+      <a href="#faq">الأسئلة</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://app.spidersbot.com/home/sign_up" class="login">دخول</a>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">ابدأ مجاناً</a>
+      <button class="burger" id="burger" aria-label="القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= الهيرو ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">✨ منصة الأتمتة والتسويق والبيع في مكان واحد</span>
+      <h1>منصة واحدة تدير <span class="hl">تواصلك ومبيعاتك وتسويقك</span></h1>
+      <p class="sub">أتمتة كاملة لمحادثات واتساب وماسنجر وإنستغرام — ردود فورية 24/7، محادثات ذكية بلا كود، متجر داخل الشات، وحملات تسويقية تصل لآلاف العملاء. كل قنواتك ولوحة واحدة.</p>
+      <div class="hero-cta">
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary btn-lg">ابدأ مجاناً الآن →</a>
+        <a href="#features" class="btn btn-ghost btn-lg">شاهد المميزات</a>
+      </div>
+      <div class="trust-note">🎁 <span><b>7 أيام مجاناً</b> — بدون بطاقة ائتمان، بدون التزام</span></div>
+    </div>
+    <div class="hero-visual">
+      <img class="ill" fetchpriority="high" width="1200" height="800" src="assets/hero.jpg" alt="أتمتة المحادثات عبر واتساب وماسنجر وإنستغرام تتحوّل إلى مبيعات">
+    </div>
+  </div>
+</section>
+
+<!-- ================= شريط الثقة ================= -->
+<section class="trust-strip">
+  <div class="wrap row">
+    <span class="lbl">يتكامل مع منصّاتك المفضّلة:</span>
+    <span class="chip"><span class="d" style="background:#25D366"></span> WhatsApp</span>
+    <span class="chip"><span class="d" style="background:#0084FF"></span> Messenger</span>
+    <span class="chip"><span class="d" style="background:#E1306C"></span> Instagram</span>
+    <span class="chip"><span class="d" style="background:#635BFF"></span> Stripe</span>
+    <span class="chip"><span class="d" style="background:#003087"></span> PayPal</span>
+    <span class="chip"><span class="d" style="background:#00b894"></span> Salla</span>
+  </div>
+</section>
+
+<!-- ================= الركائز الخمس ================= -->
+<div id="features"></div>
+
+<!-- الركيزة ١: تواصل تلقائي -->
+<section class="section">
+  <div class="wrap pillar">
+    <div class="pcopy">
+      <span class="eyebrow">١ · قنوات التواصل</span>
+      <h2>تواصل تلقائي لا يتوقف</h2>
+      <p class="lead">اربط واتساب الرسمي (Cloud API) وماسنجر وإنستغرام، وفعّل أتمتة التعليقات: ردّ بالكلمات المفتاحية، حوّل التعليق إلى رسالة خاصة، وردّ حتى على التعليقات القديمة تلقائياً.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>لا تفوّت رسالة أو تعليق — <b>ردّ فوري 24/7</b> على كل القنوات.</span></li>
+        <li><span class="ck">✓</span><span>حوّل كل تعليق عام إلى <b>محادثة خاصة</b> وفرصة بيع حقيقية.</span></li>
+        <li><span class="ck">✓</span><span>واتساب <b>رسمي معتمد</b> بأرقامك وهوية علامتك التجارية.</span></li>
+        <li><span class="ck">✓</span><span>ردود بالكلمات المفتاحية تعمل حتى على منشوراتك <b>القديمة</b>.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">فعّل قنواتك الآن</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="assets/pillar1-comments.jpg" alt="أتمتة التعليقات: الرد التلقائي وتحويل التعليق إلى رسالة خاصة على فيسبوك وإنستغرام وواتساب">
+    </div>
+  </div>
+</section>
+
+<!-- الركيزة ٢: محادثات ذكية -->
+<section class="section" style="background:var(--bg-soft)">
+  <div class="wrap pillar rev">
+    <div class="pcopy">
+      <span class="eyebrow">٢ · الذكاء والأتمتة</span>
+      <h2>محادثات ذكية بلا كود</h2>
+      <p class="lead">صمّم رحلة العميل بالكامل عبر منشئ التدفّقات بالسحب والإفلات، وأضف وكيل ذكاء اصطناعي (OpenAI / Anthropic / Google) مدعوماً بقاعدة معرفة تفهم منتجاتك وأسئلتك الشائعة.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>ابنِ رحلة من <b>الترحيب حتى البيع</b> دون أي مبرمج.</span></li>
+        <li><span class="ck">✓</span><span>وكيل ذكي يجيب بلغتك ويتعلّم من <b>قاعدة معرفتك</b>.</span></li>
+        <li><span class="ck">✓</span><span>اختر مزوّد الذكاء الأنسب لك: <b>OpenAI أو Anthropic أو Google</b>.</span></li>
+        <li><span class="ck">✓</span><span>تفريعات وشروط ذكية ترد على كل عميل بما يناسبه.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">جرّب منشئ التدفّقات</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="assets/pillar2-flow.jpg" alt="منشئ التدفّقات بالسحب والإفلات مع وكيل ذكاء اصطناعي وقاعدة معرفة — بلا كود">
+    </div>
+  </div>
+</section>
+
+<!-- الركيزة ٣: بِع داخل المحادثة -->
+<section class="section">
+  <div class="wrap pillar">
+    <div class="pcopy">
+      <span class="eyebrow">٣ · التجارة الإلكترونية</span>
+      <h2>بِع داخل المحادثة</h2>
+      <p class="lead">متجر إلكتروني متكامل داخل الشات: منتجات وسلة وكوبونات وطلبات، نموذج طلب سريع، تأكيد الطلب عند الاستلام (COD) عبر واتساب، وتذكير تلقائي بالسلة المهجورة.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>اعرض وبِع وأكّد الطلب <b>دون مغادرة المحادثة</b>.</span></li>
+        <li><span class="ck">✓</span><span>تأكيد <b>الدفع عند الاستلام</b> عبر واتساب يقلّل الطلبات الوهمية.</span></li>
+        <li><span class="ck">✓</span><span><b>استرجع السلات المهجورة</b> برسائل تذكير تلقائية.</span></li>
+        <li><span class="ck">✓</span><span>كوبونات خصم ونموذج طلب سريع يرفعان معدّل التحويل.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">افتح متجرك</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="assets/pillar3-store.jpg" alt="متجر إلكتروني داخل المحادثة: بطاقات منتجات وسلة وكوبونات والدفع عند الاستلام وتذكير السلة المهجورة">
+    </div>
+  </div>
+</section>
+
+<!-- الركيزة ٤: سوّق ووسّع -->
+<section class="section" style="background:var(--bg-soft)">
+  <div class="wrap pillar rev">
+    <div class="pcopy">
+      <span class="eyebrow">٤ · التسويق والنمو</span>
+      <h2>سوّق ووسّع جمهورك</h2>
+      <p class="lead">حملات بث جماعية، سلاسل متابعة تلقائية (Drip)، رسائل SMS وبريد إلكتروني، إضافةً إلى جدولة المنشورات والنشر التلقائي من RSS ويوتيوب ووردبريس.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>اوصل لآلاف العملاء برسائل <b>مستهدفة</b> بضغطة زر.</span></li>
+        <li><span class="ck">✓</span><span>سلاسل متابعة تلقائية <b>تُنضج العملاء</b> وتزيد المبيعات.</span></li>
+        <li><span class="ck">✓</span><span>قنوات متعددة: واتساب و<b>SMS والبريد</b> في حملة واحدة.</span></li>
+        <li><span class="ck">✓</span><span>انشر محتواك تلقائياً من <b>RSS / يوتيوب / ووردبريس</b>.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">أطلق حملتك الأولى</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="assets/pillar4-marketing.jpg" alt="التسويق والنمو: حملات بث جماعية وسلاسل متابعة و SMS وبريد ونشر تلقائي من RSS ويوتيوب">
+    </div>
+  </div>
+</section>
+
+<!-- الركيزة ٥: أدر كل شيء -->
+<section class="section">
+  <div class="wrap pillar">
+    <div class="pcopy">
+      <span class="eyebrow">٥ · الإدارة والتقارير</span>
+      <h2>أدر كل شيء من مكان واحد</h2>
+      <p class="lead">صندوق وارد موحّد يجمع كل قنواتك، دردشة حيّة، جهات اتصال مع وسوم وشرائح، تقارير حيّة لحظية، وإدارة فريق بصلاحيات دقيقة.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>كل رسائلك من <b>كل القنوات</b> في صندوق وارد واحد.</span></li>
+        <li><span class="ck">✓</span><span>قسّم جمهورك بـ<b>الوسوم والشرائح</b> لاستهداف أدق.</span></li>
+        <li><span class="ck">✓</span><span>تقارير <b>حيّة</b> تكشف الأداء لحظة بلحظة.</span></li>
+        <li><span class="ck">✓</span><span>أضف فريقك ووزّع <b>الصلاحيات</b> بأمان.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">اطّلع على اللوحة</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="assets/pillar5-manage.jpg" alt="صندوق وارد موحّد ودردشة حيّة وجهات اتصال بوسوم وتقارير حيّة وإدارة فريق بصلاحيات">
+    </div>
+  </div>
+</section>
+
+<!-- ================= حالات الاستخدام ================= -->
+<section class="section usecases" id="solutions">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">الحلول</span>
+      <h2>مصمّم لنشاطك</h2>
+      <p>أياً كان مجالك، سبايدرز بوت يتكيّف مع طريقة عملك ويحوّل محادثاتك إلى نتائج.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="assets/uc-ecommerce.jpg" alt="متجر إلكتروني"><h3>متجر إلكتروني</h3><p>اعرض منتجاتك وبِع داخل الشات، أكّد الطلبات بالدفع عند الاستلام، واسترجع السلات المهجورة تلقائياً.</p></div>
+      <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="assets/uc-restaurant.jpg" alt="مطعم أو كافيه"><h3>مطعم / كافيه</h3><p>استقبل الطلبات وقائمة الطعام عبر واتساب، أكّد الحجوزات، وأرسل عروض اليوم لعملائك المتكررين.</p></div>
+      <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="assets/uc-clinic.jpg" alt="عيادة أو خدمة"><h3>عيادة / خدمة</h3><p>احجز المواعيد تلقائياً، أرسل تذكيرات قبل الموعد، وأجب على الأسئلة الشائعة دون عناء.</p></div>
+      <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="assets/uc-services.jpg" alt="مقدّم خدمات"><h3>مقدّم خدمات</h3><p>اجمع طلبات العملاء، أرسل عروض الأسعار، وتابع الصفقات عبر سلاسل رسائل تلقائية منظّمة.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الإحصاءات ================= -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="num" data-count="9" data-suffix="+">٠</div><div class="lb">سنوات من الخبرة</div></div>
+    <div class="stat"><div class="num" data-count="18" data-suffix="K+">٠</div><div class="lb">مستخدم نشِط</div></div>
+    <div class="stat"><div class="num" data-count="120" data-suffix="M+">٠</div><div class="lb">مليون رسالة أُرسلت</div></div>
+    <div class="stat"><div class="num" data-count="99" data-suffix="٪">٠</div><div class="lb">جاهزية الخدمة</div></div>
+  </div>
+</section>
+
+<!-- ================= شبكة كل المميزات ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">القائمة الكاملة</span>
+      <h2>كل المميزات في منصّة واحدة</h2>
+      <p>لا حاجة لعشرات الأدوات المنفصلة — سبايدرز بوت يجمعها كلها في مكان واحد.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat"><div class="fi">🟢</div><h3>واتساب الرسمي</h3><p>Cloud API معتمد بأرقامك.</p></div>
+      <div class="feat"><div class="fi">🔵</div><h3>ماسنجر</h3><p>أتمتة كاملة لمحادثات فيسبوك.</p></div>
+      <div class="feat"><div class="fi">🟣</div><h3>إنستغرام</h3><p>رد على الرسائل والقصص.</p></div>
+      <div class="feat"><div class="fi">💬</div><h3>أتمتة التعليقات</h3><p>رد بالكلمات + تحويل لخاص.</p></div>
+      <div class="feat"><div class="fi">🧩</div><h3>منشئ التدفّقات</h3><p>سحب وإفلات بلا كود.</p></div>
+      <div class="feat"><div class="fi">🤖</div><h3>ذكاء اصطناعي</h3><p>OpenAI / Anthropic / Google.</p></div>
+      <div class="feat"><div class="fi">🛒</div><h3>متجر إلكتروني</h3><p>منتجات وسلة وكوبونات.</p></div>
+      <div class="feat"><div class="fi">⚡</div><h3>طلب سريع</h3><p>نموذج طلب يرفع التحويل.</p></div>
+      <div class="feat"><div class="fi">💳</div><h3>الدفع عند الاستلام</h3><p>تأكيد COD عبر واتساب.</p></div>
+      <div class="feat"><div class="fi">🔔</div><h3>السلة المهجورة</h3><p>تذكير تلقائي يسترجع البيع.</p></div>
+      <div class="feat"><div class="fi">📣</div><h3>حملات البث</h3><p>رسائل جماعية مستهدفة.</p></div>
+      <div class="feat"><div class="fi">🔁</div><h3>سلاسل المتابعة</h3><p>Drip تلقائي يُنضج العميل.</p></div>
+      <div class="feat"><div class="fi">📧</div><h3>SMS وبريد</h3><p>قنوات إضافية في حملة واحدة.</p></div>
+      <div class="feat"><div class="fi">📅</div><h3>جدولة ونشر تلقائي</h3><p>RSS / يوتيوب / ووردبريس.</p></div>
+      <div class="feat"><div class="fi">📥</div><h3>صندوق وارد موحّد</h3><p>كل القنوات في مكان واحد.</p></div>
+      <div class="feat"><div class="fi">🗨️</div><h3>دردشة حيّة</h3><p>تدخّل بشري وقت الحاجة.</p></div>
+      <div class="feat"><div class="fi">🏷️</div><h3>جهات اتصال ووسوم</h3><p>شرائح دقيقة للاستهداف.</p></div>
+      <div class="feat"><div class="fi">📊</div><h3>تقارير حيّة</h3><p>أداء لحظي وقرارات أدق.</p></div>
+      <div class="feat"><div class="fi">🎁</div><h3>نظام إحالات</h3><p>كافئ عملاءك على الترويج.</p></div>
+      <div class="feat"><div class="fi">📝</div><h3>قوالب جاهزة</h3><p>انطلق بسرعة بقوالب معدّة.</p></div>
+    </div>
+    <div class="feat-cta">
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary btn-lg">ابدأ مجاناً بكل هذه المميزات →</a>
+      <span class="note">٧ أيام مجاناً · بدون بطاقة ائتمان · إلغاء في أي وقت</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الأسعار ================= -->
+<section class="section pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">الأسعار</span>
+      <h2>خطط تناسب كل مرحلة</h2>
+      <p>ابدأ مجاناً 7 أيام، وترقّى وقت ما تحب. بدون رسوم خفية.</p>
+    </div>
+    <div class="price-toggles">
+      <div class="toggle" id="cycleToggle">
+        <button class="active" data-cycle="m">شهري</button>
+        <button data-cycle="y">سنوي <span class="save-tag">· وفّر ٢٠٪</span></button>
+      </div>
+    </div>
+    <div class="plans">
+      <!-- Basic -->
+      <div class="plan">
+        <div class="pn">Basic</div>
+        <div class="pd">لبداية قوية للأنشطة الصغيرة والأفراد.</div>
+        <div class="price">
+          <span class="amt" data-m-usd="19" data-y-usd="15" data-m-lyd="95" data-y-lyd="75">19</span>
+          <span class="cur">$</span><span class="per">/ شهرياً</span>
+        </div>
+        <div class="ynote" data-y-note>يُدفع سنوياً · وفّر ٢٠٪</div>
+        <ul>
+          <li><span class="c">✓</span> قناة واتساب رسمية واحدة</li>
+          <li><span class="c">✓</span> ماسنجر + إنستغرام</li>
+          <li><span class="c">✓</span> منشئ التدفّقات الأساسي</li>
+          <li><span class="c">✓</span> صندوق وارد موحّد</li>
+          <li><span class="c">✓</span> ١٬٠٠٠ جهة اتصال</li>
+        </ul>
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-ghost">ابدأ مجاناً</a>
+      </div>
+      <!-- Start (الأكثر شيوعاً) -->
+      <div class="plan pop">
+        <span class="tag">الأكثر شيوعاً</span>
+        <div class="pn">Start</div>
+        <div class="pd">للأنشطة النامية التي تبيع عبر المحادثات.</div>
+        <div class="price">
+          <span class="amt" data-m-usd="49" data-y-usd="39" data-m-lyd="245" data-y-lyd="195">49</span>
+          <span class="cur">$</span><span class="per">/ شهرياً</span>
+        </div>
+        <div class="ynote" data-y-note>يُدفع سنوياً · وفّر ٢٠٪</div>
+        <ul>
+          <li><span class="c">✓</span> كل مزايا Basic</li>
+          <li><span class="c">✓</span> وكيل ذكاء اصطناعي + قاعدة معرفة</li>
+          <li><span class="c">✓</span> متجر إلكتروني + COD + السلة المهجورة</li>
+          <li><span class="c">✓</span> حملات بث وسلاسل متابعة</li>
+          <li><span class="c">✓</span> ١٠٬٠٠٠ جهة اتصال + فريق ٣ أعضاء</li>
+        </ul>
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">ابدأ مجاناً</a>
+      </div>
+      <!-- Turbo -->
+      <div class="plan">
+        <div class="pn">Turbo</div>
+        <div class="pd">للأنشطة الكبيرة والفرق التي تحتاج كل شيء.</div>
+        <div class="price">
+          <span class="amt" data-m-usd="99" data-y-usd="79" data-m-lyd="495" data-y-lyd="395">99</span>
+          <span class="cur">$</span><span class="per">/ شهرياً</span>
+        </div>
+        <div class="ynote" data-y-note>يُدفع سنوياً · وفّر ٢٠٪</div>
+        <ul>
+          <li><span class="c">✓</span> كل مزايا Start</li>
+          <li><span class="c">✓</span> SMS + بريد + نشر تلقائي (RSS/يوتيوب)</li>
+          <li><span class="c">✓</span> نظام إحالات + تقارير متقدّمة</li>
+          <li><span class="c">✓</span> قنوات واتساب متعددة</li>
+          <li><span class="c">✓</span> جهات اتصال غير محدودة + فريق غير محدود</li>
+        </ul>
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-ghost">ابدأ مجاناً</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الآراء ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">آراء العملاء</span>
+      <h2>نتائج يتحدّث عنها أصحابها</h2>
+    </div>
+    <div class="tst-grid">
+      <div class="tst">
+        <div class="stars">★★★★★</div>
+        <p>"من أول أسبوع لاحظنا فرق واضح — الردود صارت فورية والطلبات تتأكّد وحدها. وفّرنا وقت فريق كامل."</p>
+        <div class="who"><span class="av">م</span><div><div class="nm">مالك متجر إلكتروني</div><div class="rl">قطاع التجزئة</div></div></div>
+      </div>
+      <div class="tst">
+        <div class="stars">★★★★★</div>
+        <p>"أتمتة التعليقات وحدها ضاعفت رسائلنا الخاصة. كل تعليق صار فرصة بيع فعلية بدل ما يضيع."</p>
+        <div class="who"><span class="av">س</span><div><div class="nm">مسؤولة تسويق</div><div class="rl">علامة تجارية ناشئة</div></div></div>
+      </div>
+      <div class="tst">
+        <div class="stars">★★★★★</div>
+        <p>"منشئ التدفّقات سهل جداً، بنيت رحلة العميل بنفسي بدون مبرمج. تذكير السلة المهجورة أرجع لنا مبيعات كنّا خسرناها."</p>
+        <div class="who"><span class="av">ع</span><div><div class="nm">صاحب مشروع خدمي</div><div class="rl">خدمات احترافية</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الأسئلة الشائعة ================= -->
+<section class="section" id="faq" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">الأسئلة الشائعة</span>
+      <h2>عندك سؤال؟ لدينا الإجابة</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-q">هل أحتاج خبرة برمجية لاستخدام المنصّة؟ <span class="ar">+</span></button>
+        <div class="faq-a"><div>إطلاقاً. كل شيء يُبنى بالسحب والإفلات عبر منشئ التدفّقات، ومعك قوالب جاهزة تنطلق بها خلال دقائق دون أي كود.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">هل واتساب المستخدم رسمي وآمن؟ <span class="ar">+</span></button>
+        <div class="faq-a"><div>نعم، نعتمد واتساب الرسمي عبر Cloud API بأرقامك وهوية علامتك التجارية، بما يحافظ على أمان حسابك واستقراره.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">هل يمكنني البيع مباشرة داخل المحادثة؟ <span class="ar">+</span></button>
+        <div class="faq-a"><div>نعم. تعرض منتجاتك، يضيفها العميل للسلة، ويؤكّد الطلب بالدفع عند الاستلام عبر واتساب — كل ذلك دون مغادرة الشات.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">كيف تعمل التجربة المجانية؟ <span class="ar">+</span></button>
+        <div class="faq-a"><div>تحصل على 7 أيام مجاناً بكامل المميزات، بدون بطاقة ائتمان وبدون التزام. يمكنك الترقية أو الإلغاء في أي وقت.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">هل أستطيع إدارة كل القنوات من مكان واحد؟ <span class="ar">+</span></button>
+        <div class="faq-a"><div>بالتأكيد. صندوق الوارد الموحّد يجمع واتساب وماسنجر وإنستغرام مع دردشة حيّة وتقارير وإدارة فريق بصلاحيات في لوحة واحدة.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= طرق الدفع ================= -->
+<section class="section pay">
+  <div class="wrap">
+    <span class="eyebrow">طرق دفع مرنة</span>
+    <h2 style="font-size:1.7rem">ادفع بالطريقة التي تناسبك</h2>
+    <div class="methods">
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg> بطاقة ائتمان</span>
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8H5a2 2 0 0 1 0-4h11v4"/><path d="M3 6v11a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1H5"/><circle cx="17" cy="13.5" r="1.4" fill="currentColor" stroke="none"/></svg> PayPal</span>
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2.5"/><path d="M12 18h.01"/><path d="M9.5 6h5"/></svg> محفظة إلكترونية</span>
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg> تحويل بنكي</span>
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg> الدفع عند الاستلام</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA النهائي ================= -->
+<section class="finalcta">
+  <div class="wrap">
+    <h2>جاهز تحوّل محادثاتك إلى مبيعات؟</h2>
+    <p>ابدأ اليوم مجاناً — كل المميزات، بدون بطاقة، بدون مخاطرة.</p>
+    <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary btn-lg">ابدأ مجاناً الآن →</a>
+    <div class="note">🎁 7 أيام مجاناً · بدون بطاقة ائتمان · إلغاء في أي وقت</div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= الفوتر ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo"><img class="sp" width="40" height="40" src="assets/spidersbot-logo-white.png" alt="شعار سبايدرز بوت"> سبايدرز بوت</a>
+        <p>منصّة واحدة لأتمتة التواصل والتسويق والبيع عبر واتساب وماسنجر وإنستغرام — من أول رسالة حتى إتمام الطلب.</p>
+      </div>
+      <div class="foot-col">
+        <h5>المنتج</h5>
+        <a href="#features">المميزات</a>
+        <a href="#solutions">الحلول</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#faq">الأسئلة</a>
+      </div>
+      <div class="foot-col">
+        <h5>الشركة</h5>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="contact.html">الدعم الفني</a>
+      </div>
+      <div class="foot-col">
+        <h5>قانوني</h5>
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الاستخدام</a>
+        <a href="returns.html">سياسة الإرجاع والاسترداد</a>
+      </div>
+      <div class="foot-col">
+        <h5>ابدأ الآن</h5>
+        <a href="https://app.spidersbot.com/home/sign_up">إنشاء حساب</a>
+        <a href="https://app.spidersbot.com/home/sign_up">تسجيل الدخول</a>
+      </div>
+    </div>
+    <div class="foot-bot">© 2026 سبايدرز بوت — جميع الحقوق محفوظة.
+      &nbsp;·&nbsp; <a href="privacy.html">الخصوصية</a> &nbsp;·&nbsp; <a href="terms.html">الشروط</a> &nbsp;·&nbsp; <a href="returns.html">الإرجاع</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ قائمة الموبايل ============ */
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+/* ============ الأكورديون ============ */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.setAttribute('aria-expanded','false');
+  q.addEventListener('click',()=>{
+    const item=q.parentElement,a=item.querySelector('.faq-a'),open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;i.querySelector('.faq-q').setAttribute('aria-expanded','false');});
+    if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';q.setAttribute('aria-expanded','true');}
+  });
+});
+
+/* ============ تبديل الأسعار (الدورة + العملة) ============ */
+let cycle='m';const cur='usd';
+const curSymbol={usd:'$'};
+function toAr(n){return String(n).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);}
+function updatePrices(){
+  document.querySelectorAll('.plan').forEach(p=>{
+    const amt=p.querySelector('.amt');
+    const val=amt.getAttribute('data-'+cycle+'-'+cur);
+    amt.textContent=toAr(val);
+    p.querySelector('.cur').textContent=curSymbol[cur];
+    const note=p.querySelector('[data-y-note]');
+    note.style.visibility = cycle==='y' ? 'visible':'hidden';
+  });
+}
+document.querySelectorAll('#cycleToggle button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#cycleToggle button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');cycle=b.dataset.cycle;updatePrices();
+  });
+});
+updatePrices();
+
+/* ============ العدّاد المتحرّك ============ */
+function animateCount(el){
+  const target=+el.dataset.count,suffix=el.dataset.suffix||'';
+  let cur=0;const step=Math.max(1,Math.ceil(target/60));
+  const t=setInterval(()=>{
+    cur+=step;if(cur>=target){cur=target;clearInterval(t);}
+    el.textContent=toAr(cur)+suffix;
+  },26);
+}
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);obs.unobserve(e.target);}});
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

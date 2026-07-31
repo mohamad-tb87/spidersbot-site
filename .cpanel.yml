@@ -1,0 +1,4 @@
+---
+deployment:
+  tasks:
+    - /usr/bin/rsync -a --exclude='.git' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='README-DEPLOY.txt' --exclude='README.md' /home/frd3ysh3yl6f/spidersbot-site/ /home/frd3ysh3yl6f/public_html/
