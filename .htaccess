@@ -3,7 +3,9 @@
 # (النطاق الفرعي app.spidersbot.com جذره ذلك المجلد مباشرةً).
 
 Options -Indexes
-DirectoryIndex index.html
+# index.php مُدرج أيضاً: هذا الملف يُورَّث للمجلدات الفرعية (مثل app.spidersbot.com/)
+# وحصرُه على index.html كان يسبّب 403 على جذر التطبيق.
+DirectoryIndex index.html index.php
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
