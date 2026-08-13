@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiders Bot | WhatsApp & Messenger Automation, In-Chat Store, and Sales</title>
+<meta name="description" content="No-code automation for WhatsApp, Messenger, and Instagram conversations, an in-chat store with cash on delivery, and smart marketing campaigns. Try Spiders Bot free for 7 days, no card required.">
+<meta name="keywords" content="Spiders Bot, WhatsApp automation, WhatsApp Cloud API, chatbot, Messenger automation, Instagram automation, WhatsApp store, cash on delivery, abandoned cart, flow builder, AI agent, WhatsApp marketing campaigns">
+<meta name="author" content="Spiders Bot">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#4F46E5">
+<link rel="alternate" hreflang="ar" href="https://spidersbot.com/">
+<link rel="alternate" hreflang="en" href="https://spidersbot.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://spidersbot.com/">
+<link rel="canonical" href="https://spidersbot.com/en/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Spiders Bot | WhatsApp & Messenger Automation, In-Chat Store, and Sales">
+<meta property="og:description" content="One platform to run your messaging, sales, and marketing: no-code automation, an in-chat store with cash on delivery, and smart campaigns. Start free for 7 days.">
+<meta property="og:url" content="https://spidersbot.com/en/">
+<meta property="og:image" content="https://spidersbot.com/assets/hero.jpg">
+<meta property="og:image:alt" content="Conversation automation across WhatsApp, Messenger, and Instagram turning into sales">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spiders Bot">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spiders Bot | WhatsApp & Messenger Automation, In-Chat Store, and Sales">
+<meta name="twitter:description" content="No-code automation for WhatsApp, Messenger, and Instagram conversations, an in-chat store with cash on delivery, and smart marketing campaigns. Try it free for 7 days.">
+<meta name="twitter:image" content="https://spidersbot.com/assets/hero.jpg">
+<meta name="twitter:image:alt" content="Conversation automation across WhatsApp, Messenger, and Instagram turning into sales">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/spidersbot-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================= المتغيّرات العامة (عدّلها من هنا) ================= */
+:root{
+  --indigo:#4F46E5;
+  --indigo-d:#4338CA;
+  --violet:#7c3aed;
+  --ink:#0f1222;
+  --body:#3b3f52;
+  --muted:#6b7185;
+  --line:#e9eaf2;
+  --bg:#ffffff;
+  --bg-soft:#f7f7fb;
+  --bg-soft2:#f2f1fb;
+  --card:#ffffff;
+  --white:#ffffff;
+  --green:#16a34a;
+  --wa:#25D366;
+  --radius:20px;
+  --radius-sm:12px;
+  --shadow:0 10px 40px -12px rgba(24,20,66,.16);
+  --shadow-soft:0 6px 24px -10px rgba(24,20,66,.14);
+  --grad:linear-gradient(135deg,var(--indigo),var(--violet));
+  --maxw:1180px;
+  --font:'IBM Plex Sans Arabic',system-ui,-apple-system,Segoe UI,Tahoma,sans-serif;
+}
+/* ================= إعادة الضبط ================= */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);color:var(--body);background:var(--bg);
+  line-height:1.85;font-size:16.5px;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+h1,h2,h3,h4{color:var(--ink);line-height:1.35;font-weight:700}
+section{position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-block;font-size:.82rem;font-weight:600;color:var(--indigo);
+  background:var(--bg-soft2);padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;
+  font-family:var(--font);font-weight:600;font-size:1rem;cursor:pointer;border:none;
+  padding:13px 26px;border-radius:12px;transition:.22s;white-space:nowrap}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 26px -8px rgba(79,70,229,.55)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 32px -8px rgba(79,70,229,.6)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--indigo);color:var(--indigo)}
+.btn-lg{padding:16px 34px;font-size:1.06rem}
+
+/* ================= الهيدر الزجاجي الثابت ================= */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);
+  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.24rem;color:var(--ink)}
+.logo .sp{width:40px;height:40px;object-fit:contain;display:block}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-weight:500;color:var(--body);font-size:.98rem;transition:.2s}
+.nav-links a:hover{color:var(--indigo)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-cta .login{font-weight:600;color:var(--ink)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2.5px;background:var(--ink);border-radius:2px;transition:.3s}
+
+/* ================= الهيرو ================= */
+.hero{padding:72px 0 40px;background:
+  radial-gradient(60% 55% at 85% 0%,rgba(124,58,237,.10),transparent 60%),
+  radial-gradient(55% 60% at 10% 20%,rgba(79,70,229,.10),transparent 60%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.hero h1{font-size:3.05rem;line-height:1.28;letter-spacing:-.5px}
+.hero h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:1.16rem;color:var(--muted);margin:22px 0 30px;max-width:560px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.trust-note{margin-top:20px;font-size:.93rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.trust-note b{color:var(--green)}
+
+/* واجهة منتج وهمية عامة (إطار متصفّح + هاتف) */
+.mock-browser{background:#fff;border-radius:18px;box-shadow:var(--shadow);
+  border:1px solid var(--line);overflow:hidden}
+.mock-bar{display:flex;align-items:center;gap:7px;padding:12px 14px;background:#fbfbfd;border-bottom:1px solid var(--line)}
+.mock-bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.mock-bar .r{background:#ff5f57}.mock-bar .y{background:#febc2e}.mock-bar .g{background:#28c840}
+.mock-bar .url{margin-inline-start:10px;font-size:.75rem;color:var(--muted);background:#fff;
+  border:1px solid var(--line);border-radius:7px;padding:3px 12px}
+.mock-body{padding:18px}
+
+/* صور توضيحية (تصاميم ChatGPT بألوان الهوية) */
+.ill{width:100%;height:auto;display:block;border-radius:22px}
+.hero-visual .ill{filter:drop-shadow(0 24px 50px rgba(79,70,229,.18))}
+.pvis .ill{filter:drop-shadow(0 18px 40px rgba(79,70,229,.14))}
+
+/* فقاعات محادثة */
+.chat{display:flex;flex-direction:column;gap:12px}
+.bub{max-width:78%;padding:11px 15px;border-radius:16px;font-size:.92rem;line-height:1.6;box-shadow:var(--shadow-soft)}
+.bub.in{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-right-radius:5px}
+.bub.out{align-self:flex-end;background:var(--grad);color:#fff;border-bottom-left-radius:5px}
+.bub.wa{align-self:flex-end;background:var(--wa);color:#fff;border-bottom-left-radius:5px}
+.typing{align-self:flex-start;display:flex;gap:4px;background:#fff;border:1px solid var(--line);padding:12px 15px;border-radius:16px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#c3c6d4;animation:bl 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes bl{0%,60%,100%{opacity:.3}30%{opacity:1}}
+
+.hero-visual{position:relative}
+.hero-badge{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);
+  border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:.88rem;color:var(--ink)}
+.hero-badge .ic{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:1rem;color:#fff}
+.hb1{top:-18px;inset-inline-start:-22px;animation:fl 4s ease-in-out infinite}
+.hb2{bottom:-20px;inset-inline-end:-18px;animation:fl 4s ease-in-out infinite .8s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ================= شريط الثقة ================= */
+.trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft);padding:22px 0}
+.trust-strip .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 34px}
+.trust-strip .lbl{font-size:.85rem;color:var(--muted);font-weight:500}
+.trust-strip .chip{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink);
+  font-size:.95rem;opacity:.82}
+.trust-strip .chip .d{width:9px;height:9px;border-radius:50%}
+
+/* ================= أقسام الركائز ================= */
+.section{padding:78px 0}
+.pillar{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.pillar.rev .pcopy{order:2}.pillar.rev .pvis{order:1}
+.pillar h2{font-size:2.15rem;letter-spacing:-.4px;margin-bottom:14px}
+.pillar p.lead{font-size:1.08rem;color:var(--muted);margin-bottom:22px}
+.benefits{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:26px}
+.benefits li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;color:var(--body)}
+.benefits li .ck{flex:none;width:26px;height:26px;border-radius:8px;background:var(--bg-soft2);
+  color:var(--indigo);display:grid;place-items:center;font-size:.9rem;font-weight:700;margin-top:2px}
+.benefits li b{color:var(--ink);font-weight:600}
+.pvis{position:relative}
+.section-head{text-align:center;max-width:640px;margin:0 auto 52px}
+.section-head h2{font-size:2.25rem;letter-spacing:-.4px;margin-bottom:12px}
+.section-head p{font-size:1.08rem;color:var(--muted)}
+
+/* لوحة تحكّم وهمية (بلاطات) */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-soft)}
+.tile .k{font-size:.78rem;color:var(--muted)}
+.tile .v{font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-.5px}
+.tile .t{font-size:.75rem;color:var(--green);font-weight:600}
+.bars{display:flex;align-items:flex-end;gap:6px;height:56px;margin-top:8px}
+.bars i{flex:1;background:var(--grad);border-radius:5px 5px 0 0;display:block;opacity:.85}
+
+/* عقد بناء التدفّق */
+.flow{display:flex;flex-direction:column;gap:0}
+.node{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 15px;
+  box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:11px;font-size:.92rem;font-weight:500;color:var(--ink)}
+.node .dot{width:30px;height:30px;border-radius:8px;background:var(--bg-soft2);color:var(--indigo);
+  display:grid;place-items:center;font-size:.95rem;flex:none}
+.node.acc{background:var(--grad);color:#fff;border:none}
+.node.acc .dot{background:rgba(255,255,255,.22);color:#fff}
+.connector{width:2px;height:20px;background:var(--line);margin-inline-start:29px}
+
+/* بطاقة منتج للمتجر */
+.shop-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-soft)}
+.shop-card .ph{height:96px;background:linear-gradient(135deg,#eef0ff,#f5edff);display:grid;place-items:center;font-size:2.2rem}
+.shop-card .in{padding:12px 14px}
+.shop-card .nm{font-weight:600;color:var(--ink);font-size:.95rem}
+.shop-card .pr{color:var(--indigo);font-weight:700;margin-top:4px}
+.shop-card .ab{display:block;text-align:center;background:var(--grad);color:#fff;font-weight:600;
+  padding:8px;border-radius:9px;margin-top:10px;font-size:.85rem}
+
+/* ================= حالات الاستخدام ================= */
+.usecases{background:var(--bg-soft)}
+.uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.uc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;
+  transition:.25s;box-shadow:var(--shadow-soft)}
+.uc:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.uc{padding:0;overflow:hidden}
+.uc .uc-img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+.uc h3{margin:18px 22px 9px}
+.uc p{margin:0 22px 24px}
+.uc h3{font-size:1.16rem;margin-bottom:9px}
+.uc p{font-size:.95rem;color:var(--muted)}
+
+/* ================= شريط الإحصاءات ================= */
+.stats{background:var(--ink);color:#fff;padding:60px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat .num{font-size:2.9rem;font-weight:700;background:linear-gradient(135deg,#a5b4fc,#c4b5fd);
+  -webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+.stat .lb{color:#b8bcd4;font-size:.98rem;margin-top:4px}
+
+/* ================= شبكة المميزات ================= */
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 18px;transition:.22s;position:relative}
+.feat:hover{border-color:var(--indigo);transform:translateY(-4px);box-shadow:var(--shadow)}
+.feat .fi{width:48px;height:48px;border-radius:13px;background:linear-gradient(135deg,#eef0ff,#f3edff);
+  border:1px solid #eae7fb;display:grid;place-items:center;font-size:1.3rem;margin-bottom:13px;transition:.22s}
+.feat:hover .fi{transform:scale(1.06);box-shadow:0 8px 18px -8px rgba(79,70,229,.45)}
+.feat h3{font-size:1.02rem;margin-bottom:5px;font-weight:600}
+.feat p{font-size:.86rem;color:var(--muted);line-height:1.6}
+.feat-cta{text-align:center;margin-top:38px}
+.feat-cta .btn{padding:15px 34px}
+.feat-cta .note{display:block;margin-top:12px;font-size:.9rem;color:var(--muted)}
+
+/* ================= الأسعار ================= */
+.pricing{background:var(--bg-soft)}
+.price-toggles{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:44px}
+.toggle{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;gap:4px}
+.toggle button{border:none;background:none;font-family:var(--font);font-weight:600;font-size:.92rem;
+  padding:9px 22px;border-radius:999px;cursor:pointer;color:var(--muted);transition:.2s;position:relative}
+.toggle button.active{background:var(--grad);color:#fff}
+.save-tag{font-size:.78rem;color:var(--green);font-weight:600}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plan{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;
+  display:flex;flex-direction:column;position:relative;transition:.25s}
+.plan:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.plan.pop{border:2px solid var(--indigo);box-shadow:var(--shadow)}
+.plan .tag{position:absolute;top:-13px;inset-inline-start:50%;transform:translateX(50%);
+  background:var(--grad);color:#fff;font-size:.78rem;font-weight:600;padding:5px 16px;border-radius:999px}
+.plan .pn{font-size:1.3rem;font-weight:700;color:var(--ink)}
+.plan .pd{font-size:.9rem;color:var(--muted);margin:6px 0 18px;min-height:40px}
+.plan .price{display:flex;align-items:baseline;gap:6px}
+.plan .price .amt{font-size:2.6rem;font-weight:700;color:var(--ink);letter-spacing:-1px}
+.plan .price .per{color:var(--muted);font-size:.92rem}
+.plan .ynote{font-size:.8rem;color:var(--green);font-weight:600;min-height:20px;margin-top:6px}
+.plan ul{list-style:none;margin:22px 0;display:flex;flex-direction:column;gap:11px;flex:1}
+.plan ul li{display:flex;gap:9px;font-size:.92rem;color:var(--body)}
+.plan ul li .c{color:var(--indigo);font-weight:700;flex:none}
+.plan .btn{width:100%;margin-top:auto}
+
+/* ================= الآراء ================= */
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tst{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow-soft)}
+.tst .stars{color:#f5b301;margin-bottom:12px;letter-spacing:2px}
+.tst p{font-size:1rem;color:var(--body);margin-bottom:20px}
+.tst .who{display:flex;align-items:center;gap:12px}
+.tst .av{width:46px;height:46px;border-radius:50%;background:var(--grad);color:#fff;display:grid;
+  place-items:center;font-weight:700;font-size:1.05rem}
+.tst .who .nm{font-weight:600;color:var(--ink);font-size:.96rem}
+.tst .who .rl{font-size:.83rem;color:var(--muted)}
+
+/* ================= الأسئلة ================= */
+.faq-wrap{max-width:780px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-q{width:100%;text-align:right;background:none;border:none;font-family:var(--font);font-weight:600;
+  font-size:1.04rem;color:var(--ink);padding:19px 22px;cursor:pointer;display:flex;justify-content:space-between;
+  align-items:center;gap:14px}
+.faq-q .ar{transition:.3s;color:var(--indigo);font-size:1.3rem;flex:none}
+.faq-item.open .faq-q .ar{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:.98rem}
+.faq-a div{padding:0 22px 20px}
+
+/* ================= طرق الدفع + CTA + الفوتر ================= */
+.pay{text-align:center}
+.pay .methods{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.pay .pm{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 22px;
+  font-weight:600;color:var(--ink);font-size:.95rem;display:inline-flex;align-items:center;gap:9px}
+.finalcta{background:var(--grad);color:#fff;text-align:center;padding:76px 0}
+.finalcta h2{color:#fff;font-size:2.4rem;margin-bottom:14px;letter-spacing:-.5px}
+.finalcta p{font-size:1.14rem;opacity:.94;margin-bottom:30px}
+.finalcta .btn-primary{background:#fff;color:var(--indigo);box-shadow:0 12px 30px -8px rgba(0,0,0,.3)}
+.finalcta .note{margin-top:18px;font-size:.92rem;opacity:.85}
+footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+.foot-brand .logo{color:#fff;margin-bottom:14px}
+.foot-brand p{font-size:.92rem;color:#9aa0c0;max-width:320px}
+.foot-col h5{color:#fff;font-size:.98rem;margin-bottom:16px;font-weight:600}
+.foot-col a{display:block;font-size:.9rem;color:#9aa0c0;margin-bottom:10px;transition:.2s}
+.foot-col a:hover{color:#fff}
+.foot-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;
+  font-size:.87rem;color:#8288ab}
+
+/* ================= الاستجابة ================= */
+@media(max-width:960px){
+  .hero-grid,.pillar{grid-template-columns:1fr;gap:40px}
+  .pillar.rev .pcopy{order:1}.pillar.rev .pvis{order:2}
+  .hero h1{font-size:2.35rem}
+  .uc-grid,.feat-grid,.stats-grid{grid-template-columns:1fr 1fr}
+  .plans,.tst-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links,.nav-cta .login{display:none}
+  .burger{display:flex}
+  .nav-links.open{display:flex;position:absolute;top:70px;inset-inline:0;flex-direction:column;
+    background:#fff;padding:20px;gap:16px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+}
+@media(max-width:560px){
+  .uc-grid,.feat-grid,.stats-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.95rem}
+  .section{padding:56px 0}
+  .foot-grid{grid-template-columns:1fr}
+}
+
+/* ===== مبدّل اللغة (ar ⇄ en) ===== */
+.lang-switch{display:inline-flex;align-items:center;justify-content:center;min-width:44px;
+  padding:6px 12px;border:1px solid var(--line,#e5e7eb);border-radius:999px;
+  font-size:.85rem;font-weight:600;color:var(--body,#374151);transition:.2s;white-space:nowrap}
+.lang-switch:hover{border-color:var(--indigo,#4F46E5);color:var(--indigo,#4F46E5)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Spiders Bot","alternateName":"Spiders Bot","url":"https://spidersbot.com/","logo":"https://spidersbot.com/assets/spidersbot-logo.png","description":"One platform to automate messaging, marketing, and selling across WhatsApp, Messenger, and Instagram.","sameAs":[]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Spiders Bot","url":"https://spidersbot.com/","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Spiders Bot","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://spidersbot.com/","description":"A platform for conversation automation, an in-chat store, and marketing campaigns across WhatsApp, Messenger, and Instagram, with a no-code flow builder and AI agents.","inLanguage":"en","offers":[{"@type":"Offer","name":"Basic","price":"19.00","priceCurrency":"USD","description":"A strong start for small businesses and individuals.","url":"https://spidersbot.com/#pricing"},{"@type":"Offer","name":"Start","price":"49.00","priceCurrency":"USD","description":"For growing businesses that sell through conversations.","url":"https://spidersbot.com/#pricing"},{"@type":"Offer","name":"Turbo","price":"99.00","priceCurrency":"USD","description":"For larger businesses and teams that need everything.","url":"https://spidersbot.com/#pricing"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need coding skills to use the platform?","acceptedAnswer":{"@type":"Answer","text":"Not at all. Everything is built by drag and drop in the flow builder, and ready-made templates get you going in minutes with no code."}},{"@type":"Question","name":"Is the WhatsApp connection official and safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. We use official WhatsApp through the Cloud API with your own numbers and brand identity, which keeps your account safe and stable."}},{"@type":"Question","name":"Can I sell directly inside the conversation?","acceptedAnswer":{"@type":"Answer","text":"Yes. You show your products, the customer adds them to the cart and confirms the order with cash on delivery over WhatsApp — all without leaving the chat."}},{"@type":"Question","name":"How does the free trial work?","acceptedAnswer":{"@type":"Answer","text":"You get 7 days free with every feature, no credit card and no commitment. You can upgrade or cancel at any time."}},{"@type":"Question","name":"Can I manage all channels from one place?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. The unified inbox brings WhatsApp, Messenger, and Instagram together with live chat, reports, and permission-based team management in a single dashboard."}}]}
+</script>
+</head>
+<body>
+
+<!-- ================= الهيدر ================= -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><img class="sp" width="40" height="40" src="../assets/spidersbot-logo.png" alt="Spiders Bot logo"> Spiders Bot</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    <a class="lang-switch" href="../" hreflang="ar" lang="ar" aria-label="Switch to Arabic">العربية</a></nav>
+    <div class="nav-cta">
+      <a href="https://app.spidersbot.com/home/sign_up" class="login">Log in</a>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Start free</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= الهيرو ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">✨ Automation, marketing, and selling in one place</span>
+      <h1>One platform to run <span class="hl">your messaging, sales, and marketing</span></h1>
+      <p class="sub">Full automation for WhatsApp, Messenger, and Instagram conversations — instant 24/7 replies, smart no-code chats, a store inside the chat, and campaigns that reach thousands. Every channel, one dashboard.</p>
+      <div class="hero-cta">
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary btn-lg">Start free now →</a>
+        <a href="#features" class="btn btn-ghost btn-lg">See the features</a>
+      </div>
+      <div class="trust-note">🎁 <span><b>7 days free</b> — no credit card, no commitment</span></div>
+    </div>
+    <div class="hero-visual">
+      <img class="ill" fetchpriority="high" width="1200" height="800" src="../assets/hero.jpg" alt="Conversation automation across WhatsApp, Messenger, and Instagram turning into sales">
+    </div>
+  </div>
+</section>
+
+<!-- ================= شريط الثقة ================= -->
+<section class="trust-strip">
+  <div class="wrap row">
+    <span class="lbl">Works with the platforms you already use:</span>
+    <span class="chip"><span class="d" style="background:#25D366"></span> WhatsApp</span>
+    <span class="chip"><span class="d" style="background:#0084FF"></span> Messenger</span>
+    <span class="chip"><span class="d" style="background:#E1306C"></span> Instagram</span>
+    <span class="chip"><span class="d" style="background:#635BFF"></span> Stripe</span>
+    <span class="chip"><span class="d" style="background:#003087"></span> PayPal</span>
+    <span class="chip"><span class="d" style="background:#00b894"></span> Salla</span>
+  </div>
+</section>
+
+<!-- ================= الركائز الخمس ================= -->
+<div id="features"></div>
+
+<!-- الركيزة ١: تواصل تلقائي -->
+<section class="section">
+  <div class="wrap pillar">
+    <div class="pcopy">
+      <span class="eyebrow">1 · Messaging channels</span>
+      <h2>Automated conversations that never sleep</h2>
+      <p class="lead">Connect official WhatsApp (Cloud API), Messenger, and Instagram, then switch on comment automation: reply by keyword, turn a comment into a private message, and even answer older comments automatically.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>Never miss a message or a comment — <b>instant replies 24/7</b> across every channel.</span></li>
+        <li><span class="ck">✓</span><span>Turn every public comment into <b>a private conversation</b> and a real chance to sell.</span></li>
+        <li><span class="ck">✓</span><span>WhatsApp <b>official and approved</b> with your own numbers and brand identity.</span></li>
+        <li><span class="ck">✓</span><span>Keyword replies work even on your <b>older posts</b>.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Connect your channels</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar1-comments.jpg" alt="Comment automation: automatic replies and turning a comment into a private message on Facebook, Instagram, and WhatsApp">
+    </div>
+  </div>
+</section>
+
+<!-- الركيزة ٢: محادثات ذكية -->
+<section class="section" style="background:var(--bg-soft)">
+  <div class="wrap pillar rev">
+    <div class="pcopy">
+      <span class="eyebrow">2 · AI and automation</span>
+      <h2>Smart conversations, no code</h2>
+      <p class="lead">Design the whole customer journey with a drag-and-drop flow builder, and add an AI agent (OpenAI / Anthropic / Google) backed by a knowledge base that understands your products and your FAQs.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>Build a journey from <b>welcome to sale</b> with no developer.</span></li>
+        <li><span class="ck">✓</span><span>An AI agent that answers in your language and learns from <b>your knowledge base</b>.</span></li>
+        <li><span class="ck">✓</span><span>Pick the AI provider that suits you: <b>OpenAI, Anthropic, or Google</b>.</span></li>
+        <li><span class="ck">✓</span><span>Smart branches and conditions answer each customer the right way.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Try the flow builder</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar2-flow.jpg" alt="Drag-and-drop flow builder with an AI agent and a knowledge base — no code">
+    </div>
+  </div>
+</section>
+
+<!-- الركيزة ٣: بِع داخل المحادثة -->
+<section class="section">
+  <div class="wrap pillar">
+    <div class="pcopy">
+      <span class="eyebrow">3 · E-commerce</span>
+      <h2>Sell inside the conversation</h2>
+      <p class="lead">A complete store inside the chat: products, cart, coupons, and orders, a quick-order form, cash-on-delivery (COD) confirmation over WhatsApp, and automatic abandoned-cart reminders.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>Show, sell, and confirm the order <b>without leaving the chat</b>.</span></li>
+        <li><span class="ck">✓</span><span>Confirming <b>cash on delivery</b> over WhatsApp cuts down fake orders.</span></li>
+        <li><span class="ck">✓</span><span><b>Win back abandoned carts</b> with automatic reminders.</span></li>
+        <li><span class="ck">✓</span><span>Discount coupons and a quick-order form lift your conversion rate.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Open your store</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar3-store.jpg" alt="An online store inside the conversation: product cards, cart, coupons, cash on delivery, and abandoned-cart reminders">
+    </div>
+  </div>
+</section>
+
+<!-- الركيزة ٤: سوّق ووسّع -->
+<section class="section" style="background:var(--bg-soft)">
+  <div class="wrap pillar rev">
+    <div class="pcopy">
+      <span class="eyebrow">4 · Marketing and growth</span>
+      <h2>Market and grow your audience</h2>
+      <p class="lead">Broadcast campaigns, automatic drip follow-ups, SMS and email, plus post scheduling and auto-publishing from RSS, YouTube, and WordPress.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>Reach thousands of customers with <b>targeted messages</b> in one click.</span></li>
+        <li><span class="ck">✓</span><span>Automatic follow-up sequences <b>nurture your leads</b> and grow sales.</span></li>
+        <li><span class="ck">✓</span><span>Multiple channels: WhatsApp,<b>SMS, and email</b> in a single campaign.</span></li>
+        <li><span class="ck">✓</span><span>Publish your content automatically from <b>RSS / YouTube / WordPress</b>.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Launch your first campaign</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar4-marketing.jpg" alt="Marketing and growth: broadcast campaigns, follow-up sequences, SMS and email, and auto-publishing from RSS and YouTube">
+    </div>
+  </div>
+</section>
+
+<!-- الركيزة ٥: أدر كل شيء -->
+<section class="section">
+  <div class="wrap pillar">
+    <div class="pcopy">
+      <span class="eyebrow">5 · Management and reporting</span>
+      <h2>Run everything from one place</h2>
+      <p class="lead">A unified inbox for every channel, live chat, contacts with labels and segments, real-time reports, and team management with fine-grained permissions.</p>
+      <ul class="benefits">
+        <li><span class="ck">✓</span><span>Every message from <b>every channel</b> in one inbox.</span></li>
+        <li><span class="ck">✓</span><span>Split your audience with<b>labels and segments</b> for sharper targeting.</span></li>
+        <li><span class="ck">✓</span><span>Reports <b>in real time</b> show performance as it happens.</span></li>
+        <li><span class="ck">✓</span><span>Add your team and assign <b>permissions</b> safely.</span></li>
+      </ul>
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">See the dashboard</a>
+    </div>
+    <div class="pvis">
+      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar5-manage.jpg" alt="Unified inbox, live chat, labelled contacts, real-time reports, and permission-based team management">
+    </div>
+  </div>
+</section>
+
+<!-- ================= حالات الاستخدام ================= -->
+<section class="section usecases" id="solutions">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Solutions</span>
+      <h2>Built for your business</h2>
+      <p>Whatever your field, Spiders Bot adapts to how you work and turns your conversations into results.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="../assets/uc-ecommerce.jpg" alt="Online store"><h3>Online store</h3><p>Show your products and sell inside the chat, confirm cash-on-delivery orders, and win back abandoned carts automatically.</p></div>
+      <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="../assets/uc-restaurant.jpg" alt="Restaurant or café"><h3>Restaurant / café</h3><p>Take orders and share your menu over WhatsApp, confirm reservations, and send today's offers to your regulars.</p></div>
+      <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="../assets/uc-clinic.jpg" alt="Clinic or service"><h3>Clinic / service</h3><p>Book appointments automatically, send reminders before each one, and answer common questions effortlessly.</p></div>
+      <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="../assets/uc-services.jpg" alt="Service provider"><h3>Service provider</h3><p>Collect client requests, send quotes, and follow up on deals with organized automatic sequences.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الإحصاءات ================= -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="num" data-count="9" data-suffix="+">0</div><div class="lb">Years of experience</div></div>
+    <div class="stat"><div class="num" data-count="18" data-suffix="K+">0</div><div class="lb">Active users</div></div>
+    <div class="stat"><div class="num" data-count="120" data-suffix="M+">0</div><div class="lb">Million messages sent</div></div>
+    <div class="stat"><div class="num" data-count="99" data-suffix="٪">0</div><div class="lb">Service uptime</div></div>
+  </div>
+</section>
+
+<!-- ================= شبكة كل المميزات ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The full list</span>
+      <h2>Every feature in one platform</h2>
+      <p>No need for a dozen separate tools — Spiders Bot brings them all together.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat"><div class="fi">🟢</div><h3>Official WhatsApp</h3><p>Approved Cloud API with your numbers.</p></div>
+      <div class="feat"><div class="fi">🔵</div><h3>Messenger</h3><p>Full automation for Facebook chats.</p></div>
+      <div class="feat"><div class="fi">🟣</div><h3>Instagram</h3><p>Reply to messages and stories.</p></div>
+      <div class="feat"><div class="fi">💬</div><h3>Comment automation</h3><p>Keyword replies + move to DM.</p></div>
+      <div class="feat"><div class="fi">🧩</div><h3>Flow builder</h3><p>Drag and drop, no code.</p></div>
+      <div class="feat"><div class="fi">🤖</div><h3>Artificial intelligence</h3><p>OpenAI / Anthropic / Google.</p></div>
+      <div class="feat"><div class="fi">🛒</div><h3>Online store</h3><p>Products, cart, and coupons.</p></div>
+      <div class="feat"><div class="fi">⚡</div><h3>Quick order</h3><p>An order form that lifts conversion.</p></div>
+      <div class="feat"><div class="fi">💳</div><h3>cash on delivery</h3><p>COD confirmation over WhatsApp.</p></div>
+      <div class="feat"><div class="fi">🔔</div><h3>Abandoned cart</h3><p>An automatic reminder that recovers the sale.</p></div>
+      <div class="feat"><div class="fi">📣</div><h3>Broadcast campaigns</h3><p>Targeted bulk messages.</p></div>
+      <div class="feat"><div class="fi">🔁</div><h3>Follow-up sequences</h3><p>Automatic drip that nurtures the lead.</p></div>
+      <div class="feat"><div class="fi">📧</div><h3>SMS and email</h3><p>Extra channels in one campaign.</p></div>
+      <div class="feat"><div class="fi">📅</div><h3>Scheduling and auto-publishing</h3><p>RSS / YouTube / WordPress.</p></div>
+      <div class="feat"><div class="fi">📥</div><h3>Unified inbox</h3><p>Every channel in one place.</p></div>
+      <div class="feat"><div class="fi">🗨️</div><h3>Live chat</h3><p>A human steps in when needed.</p></div>
+      <div class="feat"><div class="fi">🏷️</div><h3>Contacts and labels</h3><p>Precise segments for targeting.</p></div>
+      <div class="feat"><div class="fi">📊</div><h3>Real-time reports</h3><p>Live performance, sharper decisions.</p></div>
+      <div class="feat"><div class="fi">🎁</div><h3>Affiliate program</h3><p>Reward customers for promoting you.</p></div>
+      <div class="feat"><div class="fi">📝</div><h3>Ready-made templates</h3><p>Get going fast with prepared templates.</p></div>
+    </div>
+    <div class="feat-cta">
+      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary btn-lg">Start free with all of this →</a>
+      <span class="note">7 days free · no credit card · cancel anytime</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الأسعار ================= -->
+<section class="section pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Plans for every stage</h2>
+      <p>Start with 7 free days and upgrade whenever you like. No hidden fees.</p>
+    </div>
+    <div class="price-toggles">
+      <div class="toggle" id="cycleToggle">
+        <button class="active" data-cycle="m">Monthly</button>
+        <button data-cycle="y">Yearly <span class="save-tag">· save 20%</span></button>
+      </div>
+    </div>
+    <div class="plans">
+      <!-- Basic -->
+      <div class="plan">
+        <div class="pn">Basic</div>
+        <div class="pd">A strong start for small businesses and individuals.</div>
+        <div class="price">
+          <span class="amt" data-m-usd="19" data-y-usd="15" data-m-lyd="95" data-y-lyd="75">19</span>
+          <span class="cur">$</span><span class="per">/ month</span>
+        </div>
+        <div class="ynote" data-y-note>Billed yearly · save 20%</div>
+        <ul>
+          <li><span class="c">✓</span> One official WhatsApp channel</li>
+          <li><span class="c">✓</span> Messenger + Instagram</li>
+          <li><span class="c">✓</span> Core flow builder</li>
+          <li><span class="c">✓</span> Unified inbox</li>
+          <li><span class="c">✓</span> 1,000 contacts</li>
+        </ul>
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-ghost">Start free</a>
+      </div>
+      <!-- Start (الأكثر شيوعاً) -->
+      <div class="plan pop">
+        <span class="tag">Most popular</span>
+        <div class="pn">Start</div>
+        <div class="pd">For growing businesses that sell through conversations.</div>
+        <div class="price">
+          <span class="amt" data-m-usd="49" data-y-usd="39" data-m-lyd="245" data-y-lyd="195">49</span>
+          <span class="cur">$</span><span class="per">/ month</span>
+        </div>
+        <div class="ynote" data-y-note>Billed yearly · save 20%</div>
+        <ul>
+          <li><span class="c">✓</span> Everything in Basic</li>
+          <li><span class="c">✓</span> AI agent + knowledge base</li>
+          <li><span class="c">✓</span> Online store + COD + abandoned cart</li>
+          <li><span class="c">✓</span> Broadcasts and follow-up sequences</li>
+          <li><span class="c">✓</span> 10,000 contacts + a 3-member team</li>
+        </ul>
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Start free</a>
+      </div>
+      <!-- Turbo -->
+      <div class="plan">
+        <div class="pn">Turbo</div>
+        <div class="pd">For larger businesses and teams that need everything.</div>
+        <div class="price">
+          <span class="amt" data-m-usd="99" data-y-usd="79" data-m-lyd="495" data-y-lyd="395">99</span>
+          <span class="cur">$</span><span class="per">/ month</span>
+        </div>
+        <div class="ynote" data-y-note>Billed yearly · save 20%</div>
+        <ul>
+          <li><span class="c">✓</span> Everything in Start</li>
+          <li><span class="c">✓</span> SMS + email + auto-publishing (RSS/YouTube)</li>
+          <li><span class="c">✓</span> Affiliate program + advanced reports</li>
+          <li><span class="c">✓</span> Multiple WhatsApp channels</li>
+          <li><span class="c">✓</span> Unlimited contacts + unlimited team</li>
+        </ul>
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-ghost">Start free</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الآراء ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Customer stories</span>
+      <h2>Results our customers talk about</h2>
+    </div>
+    <div class="tst-grid">
+      <div class="tst">
+        <div class="stars">★★★★★</div>
+        <p>"From the first week the difference was obvious — replies became instant and orders confirmed themselves. We saved a whole team's time."</p>
+        <div class="who"><span class="av">M</span><div><div class="nm">Online store owner</div><div class="rl">Retail</div></div></div>
+      </div>
+      <div class="tst">
+        <div class="stars">★★★★★</div>
+        <p>"Comment automation alone doubled our direct messages. Every comment became a real sales opportunity instead of being lost."</p>
+        <div class="who"><span class="av">S</span><div><div class="nm">Marketing lead</div><div class="rl">Emerging brand</div></div></div>
+      </div>
+      <div class="tst">
+        <div class="stars">★★★★★</div>
+        <p>"The flow builder is so easy that I built the customer journey myself, with no developer. Abandoned-cart reminders brought back sales we had already lost."</p>
+        <div class="who"><span class="av">A</span><div><div class="nm">Service business owner</div><div class="rl">Professional services</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= الأسئلة الشائعة ================= -->
+<section class="section" id="faq" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Frequently asked questions</span>
+      <h2>Got a question? We have the answer</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-q">Do I need coding skills to use the platform? <span class="ar">+</span></button>
+        <div class="faq-a"><div>Not at all. Everything is built by drag and drop in the flow builder, and ready-made templates get you going in minutes with no code.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is the WhatsApp connection official and safe? <span class="ar">+</span></button>
+        <div class="faq-a"><div>Yes. We use official WhatsApp through the Cloud API with your own numbers and brand identity, which keeps your account safe and stable.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I sell directly inside the conversation? <span class="ar">+</span></button>
+        <div class="faq-a"><div>Yes. You show your products, the customer adds them to the cart and confirms the order with cash on delivery over WhatsApp — all without leaving the chat.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does the free trial work? <span class="ar">+</span></button>
+        <div class="faq-a"><div>You get 7 days free with every feature, no credit card and no commitment. You can upgrade or cancel at any time.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I manage all channels from one place? <span class="ar">+</span></button>
+        <div class="faq-a"><div>Absolutely. The unified inbox brings WhatsApp, Messenger, and Instagram together with live chat, reports, and permission-based team management in a single dashboard.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= طرق الدفع ================= -->
+<section class="section pay">
+  <div class="wrap">
+    <span class="eyebrow">Flexible payment methods</span>
+    <h2 style="font-size:1.7rem">Pay the way that suits you</h2>
+    <div class="methods">
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg> Credit card</span>
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8H5a2 2 0 0 1 0-4h11v4"/><path d="M3 6v11a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1H5"/><circle cx="17" cy="13.5" r="1.4" fill="currentColor" stroke="none"/></svg> PayPal</span>
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2.5"/><path d="M12 18h.01"/><path d="M9.5 6h5"/></svg> E-wallet</span>
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg> Bank transfer</span>
+      <span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg> cash on delivery</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA النهائي ================= -->
+<section class="finalcta">
+  <div class="wrap">
+    <h2>Ready to turn your conversations into sales?</h2>
+    <p>Start free today — every feature, no card, no risk.</p>
+    <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary btn-lg">Start free now →</a>
+    <div class="note">🎁 7 days free · no credit card · cancel anytime</div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= الفوتر ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo"><img class="sp" width="40" height="40" src="../assets/spidersbot-logo-white.png" alt="Spiders Bot logo"> Spiders Bot</a>
+        <p>One platform to automate messaging, marketing, and selling across WhatsApp, Messenger, and Instagram — from the first message to the completed order.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Product</h5>
+        <a href="#features">Features</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact us</a>
+        <a href="contact.html">Support</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="returns.html">Refund & Return Policy</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get started</h5>
+        <a href="https://app.spidersbot.com/home/sign_up">Create an account</a>
+        <a href="https://app.spidersbot.com/home/sign_up">Log in</a>
+      </div>
+    </div>
+    <div class="foot-bot">© 2026 Spiders Bot — all rights reserved. &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="returns.html">Refunds</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ قائمة الموبايل ============ */
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+/* ============ الأكورديون ============ */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.setAttribute('aria-expanded','false');
+  q.addEventListener('click',()=>{
+    const item=q.parentElement,a=item.querySelector('.faq-a'),open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;i.querySelector('.faq-q').setAttribute('aria-expanded','false');});
+    if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';q.setAttribute('aria-expanded','true');}
+  });
+});
+
+/* ============ تبديل الأسعار (الدورة + العملة) ============ */
+let cycle='m';const cur='usd';
+const curSymbol={usd:'$'};
+function toAr(n){return String(n).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);}
+function updatePrices(){
+  document.querySelectorAll('.plan').forEach(p=>{
+    const amt=p.querySelector('.amt');
+    const val=amt.getAttribute('data-'+cycle+'-'+cur);
+    amt.textContent=toAr(val);
+    p.querySelector('.cur').textContent=curSymbol[cur];
+    const note=p.querySelector('[data-y-note]');
+    note.style.visibility = cycle==='y' ? 'visible':'hidden';
+  });
+}
+document.querySelectorAll('#cycleToggle button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#cycleToggle button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');cycle=b.dataset.cycle;updatePrices();
+  });
+});
+updatePrices();
+
+/* ============ العدّاد المتحرّك ============ */
+function animateCount(el){
+  const target=+el.dataset.count,suffix=el.dataset.suffix||'';
+  let cur=0;const step=Math.max(1,Math.ceil(target/60));
+  const t=setInterval(()=>{
+    cur+=step;if(cur>=target){cur=target;clearInterval(t);}
+    el.textContent=toAr(cur)+suffix;
+  },26);
+}
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);obs.unobserve(e.target);}});
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

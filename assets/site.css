@@ -90,3 +90,9 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
   .page-hero h1{font-size:2rem}
 }
 @media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+
+/* ===== مبدّل اللغة (ar ⇄ en) ===== */
+.lang-switch{display:inline-flex;align-items:center;justify-content:center;min-width:44px;
+  padding:6px 12px;border:1px solid var(--line,#e5e7eb);border-radius:999px;
+  font-size:.85rem;font-weight:600;color:var(--body,#374151);transition:.2s;white-space:nowrap}
+.lang-switch:hover{border-color:var(--indigo,#4F46E5);color:var(--indigo,#4F46E5)}
