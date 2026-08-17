@@ -207,13 +207,6 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);
 .uc h3{font-size:1.16rem;margin-bottom:9px}
 .uc p{font-size:.95rem;color:var(--muted)}
 
-/* ================= شريط الإحصاءات ================= */
-.stats{background:var(--ink);color:#fff;padding:60px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-.stat .num{font-size:2.9rem;font-weight:700;background:linear-gradient(135deg,#a5b4fc,#c4b5fd);
-  -webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
-.stat .lb{color:#b8bcd4;font-size:.98rem;margin-top:4px}
-
 /* ================= شبكة المميزات ================= */
 .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .feat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 18px;transition:.22s;position:relative}
@@ -289,7 +282,7 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
   .hero-grid,.pillar{grid-template-columns:1fr;gap:40px}
   .pillar.rev .pcopy{order:1}.pillar.rev .pvis{order:2}
   .hero h1{font-size:2.35rem}
-  .uc-grid,.feat-grid,.stats-grid{grid-template-columns:1fr 1fr}
+  .uc-grid,.feat-grid{grid-template-columns:1fr 1fr}
   .plans{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
   .nav-links,.nav-cta .login{display:none}
@@ -298,7 +291,7 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
     background:#fff;padding:20px;gap:16px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
 }
 @media(max-width:560px){
-  .uc-grid,.feat-grid,.stats-grid{grid-template-columns:1fr}
+  .uc-grid,.feat-grid{grid-template-columns:1fr}
   .hero h1{font-size:1.95rem}
   .section{padding:56px 0}
   .foot-grid{grid-template-columns:1fr}
@@ -499,16 +492,6 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
       <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="assets/uc-clinic.jpg" alt="عيادة أو خدمة"><h3>عيادة / خدمة</h3><p>احجز المواعيد تلقائياً، أرسل تذكيرات قبل الموعد، وأجب على الأسئلة الشائعة دون عناء.</p></div>
       <div class="uc"><img class="uc-img" loading="lazy" width="820" height="820" src="assets/uc-services.jpg" alt="مقدّم خدمات"><h3>مقدّم خدمات</h3><p>اجمع طلبات العملاء، أرسل عروض الأسعار، وتابع الصفقات عبر سلاسل رسائل تلقائية منظّمة.</p></div>
     </div>
-  </div>
-</section>
-
-<!-- ================= الإحصاءات ================= -->
-<section class="stats">
-  <div class="wrap stats-grid">
-    <div class="stat"><div class="num" data-count="9" data-suffix="+">٠</div><div class="lb">سنوات من الخبرة</div></div>
-    <div class="stat"><div class="num" data-count="18" data-suffix="K+">٠</div><div class="lb">مستخدم نشِط</div></div>
-    <div class="stat"><div class="num" data-count="120" data-suffix="M+">٠</div><div class="lb">مليون رسالة أُرسلت</div></div>
-    <div class="stat"><div class="num" data-count="99" data-suffix="٪">٠</div><div class="lb">جاهزية الخدمة</div></div>
   </div>
 </section>
 
@@ -757,19 +740,6 @@ document.querySelectorAll('#cycleToggle button').forEach(b=>{
 });
 updatePrices();
 
-/* ============ العدّاد المتحرّك ============ */
-function animateCount(el){
-  const target=+el.dataset.count,suffix=el.dataset.suffix||'';
-  let cur=0;const step=Math.max(1,Math.ceil(target/60));
-  const t=setInterval(()=>{
-    cur+=step;if(cur>=target){cur=target;clearInterval(t);}
-    el.textContent=toAr(cur)+suffix;
-  },26);
-}
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);obs.unobserve(e.target);}});
-},{threshold:.5});
-document.querySelectorAll('[data-count]').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
