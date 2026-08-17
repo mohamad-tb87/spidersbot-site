@@ -720,12 +720,11 @@ document.querySelectorAll('.faq-q').forEach(q=>{
 /* ============ تبديل الأسعار (الدورة + العملة) ============ */
 let cycle='m';const cur='usd';
 const curSymbol={usd:'$'};
-function toAr(n){return String(n).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);}
 function updatePrices(){
   document.querySelectorAll('.plan').forEach(p=>{
     const amt=p.querySelector('.amt');
     const val=amt.getAttribute('data-'+cycle+'-'+cur);
-    amt.textContent=toAr(val);
+    amt.textContent=val;
     p.querySelector('.cur').textContent=curSymbol[cur];
     const note=p.querySelector('[data-y-note]');
     note.style.visibility = cycle==='y' ? 'visible':'hidden';
