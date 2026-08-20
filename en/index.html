@@ -49,6 +49,10 @@
   --card:#ffffff;
   --white:#ffffff;
   --green:#16a34a;
+  --money:#0E7C61;
+  --money-soft:#E9F5F1;
+  --loss:#B4342C;
+
   --wa:#25D366;
   --radius:20px;
   --radius-sm:12px;
@@ -302,6 +306,113 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
   padding:6px 12px;border:1px solid var(--line,#e5e7eb);border-radius:999px;
   font-size:.85rem;font-weight:600;color:var(--body,#374151);transition:.2s;white-space:nowrap}
 .lang-switch:hover{border-color:var(--indigo,#4F46E5);color:var(--indigo,#4F46E5)}
+
+/* ================= الاتجاه ج: الهيرو والمعادلة ================= */
+.hero-c{padding:58px 0 46px;background:var(--bg)}
+.hero-c .grid{display:grid;grid-template-columns:1fr 1.02fr;gap:46px;align-items:center}
+.hero-c .eyebrow2{
+  font-size:.78rem;letter-spacing:.16em;color:var(--money);font-weight:700;
+  margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid var(--line);display:inline-block
+}
+.hero-c h1{font-size:3.5rem;line-height:1.15;letter-spacing:-.045em;color:var(--ink);margin-bottom:16px;text-wrap:balance}
+.hero-c h1 em{font-style:normal;color:var(--money)}
+.hero-c .sub{font-size:1.08rem;max-width:40ch;margin-bottom:24px;color:var(--body)}
+.hero-c .sub b{color:var(--ink);font-weight:700}
+.hero-c .cta{display:flex;gap:11px;align-items:center;flex-wrap:wrap}
+.hero-c .guar{width:100%;margin-top:14px;font-size:.86rem;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+.hero-c .guar span{display:flex;gap:6px;align-items:center}
+.hero-c .guar i{color:var(--money);font-style:normal;font-weight:700}
+.eqz{display:grid;gap:10px}
+.eqz .c{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-soft)}
+.eqz .c.win{border:2px solid var(--money)}
+.eqz .tag{font-size:.72rem;letter-spacing:.06em;color:var(--muted);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.eqz .tag i{width:8px;height:8px;border-radius:50%;display:block;font-style:normal}
+.eqz .cmt{display:flex;gap:10px;align-items:center}
+.eqz .cmt .av{width:30px;height:30px;border-radius:50%;background:var(--bg-soft2);flex:none}
+.eqz .cmt .tx{font-size:.94rem;color:var(--ink)}
+.eqz .lnk{display:flex;align-items:center;gap:10px;padding-inline-start:8px}
+.eqz .lnk i{flex:1;height:1px;background:var(--line);font-style:normal}
+.eqz .lnk span{font-size:.76rem;color:var(--money);font-weight:700;background:var(--money-soft);padding:4px 12px;border-radius:999px;white-space:nowrap}
+.eqz .b{max-width:86%;padding:9px 13px;border-radius:13px;font-size:.9rem;line-height:1.65;margin-bottom:7px}
+.eqz .b.us{background:var(--money-soft);color:#0B3D31;border-start-end-radius:4px;margin-inline-start:auto}
+.eqz .b.them{background:var(--bg-soft);color:var(--ink);border-start-start-radius:4px}
+.eqz .ord{display:flex;align-items:center;gap:13px}
+.eqz .ord .im{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--bg-soft2),var(--line));flex:none}
+.eqz .ord .nm{font-size:.94rem;color:var(--ink);font-weight:700;display:block}
+.eqz .ord .st{font-size:.8rem;color:var(--money);font-weight:700}
+.eqz .ord .amt{margin-inline-start:auto;font-weight:700;font-size:1.5rem;color:var(--money);letter-spacing:-.02em}
+
+/* ================= التسريب: الحاسبة ================= */
+.leak{background:var(--bg-soft);border-block:1px solid var(--line)}
+.calc{
+  border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--card);
+  display:grid;grid-template-columns:1.3fr 1fr;overflow:hidden;margin-top:26px
+}
+.calc-l{padding:26px 28px;border-inline-end:1px solid var(--line)}
+.calc-row{margin-bottom:17px}
+.calc-row:last-child{margin-bottom:0}
+.calc-row label{display:flex;justify-content:space-between;align-items:baseline;font-size:.92rem;margin-bottom:7px;color:var(--body)}
+.calc-row label b{font-weight:700;color:var(--ink);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.calc input[type=range]{width:100%;accent-color:var(--money);cursor:pointer}
+.calc input[type=range]:focus-visible{outline:2px solid var(--money);outline-offset:3px}
+.calc-r{padding:26px 28px;background:var(--bg-soft2);display:flex;flex-direction:column;justify-content:center}
+.calc-r .k{font-size:.86rem;color:var(--muted);margin-bottom:2px}
+.calc-r .big{font-weight:700;font-size:3rem;line-height:1.08;color:var(--loss);letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.calc-r .note{font-size:.86rem;color:var(--muted);margin:5px 0 18px}
+.calc-r .vs{border-top:1px solid var(--line);padding-top:16px}
+.calc-r .vs .v{font-weight:700;font-size:1.55rem;color:var(--money);font-variant-numeric:tabular-nums}
+.calc-r .vs .v s{font-size:.9rem;font-weight:400;color:var(--muted);text-decoration:none}
+.calc-r .vs p{margin:6px 0 0;font-size:.88rem;color:var(--body)}
+
+/* ================= السدّ: ثلاث خطوات ================= */
+.fixgrid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-top:26px;background:var(--card)}
+.fixgrid .st{padding:24px 26px;border-inline-end:1px solid var(--line)}
+.fixgrid .st:last-child{border-inline-end:0}
+.fixgrid .n{font-size:.78rem;color:var(--money);letter-spacing:.14em;font-weight:700;margin-bottom:12px}
+.fixgrid h3{font-size:1.16rem;color:var(--ink);margin-bottom:8px;letter-spacing:-.02em}
+.fixgrid p{font-size:.95rem;margin-bottom:13px;color:var(--body)}
+.fixgrid .mini{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:.86rem;color:var(--ink)}
+.fixgrid .mini .k{color:var(--muted);font-size:.76rem;display:block;margin-bottom:6px}
+.fixgrid .mini .p{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 10px;margin-top:6px}
+
+/* ================= المقارنة ================= */
+.cmp-wrap{overflow-x:auto;margin-top:26px}
+.cmp{width:100%;border-collapse:collapse;font-size:.95rem;min-width:620px}
+.cmp th{text-align:right;font-weight:700;font-size:.92rem;color:var(--ink);padding:13px 15px;border-bottom:2px solid var(--ink)}
+.cmp th.us{color:var(--money)}
+.cmp td{padding:13px 15px;border-bottom:1px solid var(--line);color:var(--body)}
+.cmp td.us{background:var(--money-soft);color:var(--ink);font-weight:700}
+.cmp td b{color:var(--ink);font-weight:700}
+.cmp .no{color:var(--loss);font-weight:700}
+
+/* ================= نزع الخوف ================= */
+.fears{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+.fear{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px 22px}
+.fear .q{font-weight:700;color:var(--ink);font-size:1.04rem;margin-bottom:8px}
+.fear p{margin:0;font-size:.93rem;color:var(--body)}
+
+/* ================= مرساة السعر ================= */
+.anchor{
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px 26px;margin-bottom:30px;box-shadow:var(--shadow-soft)
+}
+.anchor .bit{display:flex;flex-direction:column}
+.anchor .bit .l{font-size:.84rem;color:var(--muted)}
+.anchor .bit .v{font-weight:700;font-size:1.85rem;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.anchor .bit .v.red{color:var(--loss)}
+.anchor .bit .v.grn{color:var(--money)}
+.anchor .arw{font-size:1.5rem;color:var(--muted)}
+.anchor .say{margin-inline-start:auto;font-size:.98rem;color:var(--ink);max-width:34ch}
+
+@media (max-width:980px){
+  .hero-c .grid{grid-template-columns:1fr;gap:34px}
+  .hero-c h1{font-size:2.5rem}
+  .calc,.fixgrid,.fears{grid-template-columns:1fr}
+  .calc-l{border-inline-end:0;border-bottom:1px solid var(--line)}
+  .fixgrid .st{border-inline-end:0;border-bottom:1px solid var(--line)}
+  .fixgrid .st:last-child{border-bottom:0}
+  .anchor .say{margin-inline-start:0}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Spiders Bot","alternateName":"Spiders Bot","url":"https://spidersbot.com/","logo":"https://spidersbot.com/assets/spidersbot-logo.png","description":"One platform to automate messaging, marketing, and selling across WhatsApp, Messenger, and Instagram.","sameAs":[]}
@@ -339,20 +450,41 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
 <main>
 
 <!-- ================= الهيرو ================= -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">✨ Automation, marketing, and selling in one place</span>
-      <h1>One platform to run <span class="hl">your messaging, sales, and marketing</span></h1>
-      <p class="sub">Full automation for WhatsApp, Messenger, and Instagram conversations — instant 24/7 replies, smart no-code chats, a store inside the chat, and campaigns that reach thousands. Every channel, one dashboard.</p>
-      <div class="hero-cta">
-        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary btn-lg">Start free now →</a>
-        <a href="#features" class="btn btn-ghost btn-lg">See the features</a>
+<section class="hero-c">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow2">WhatsApp · Messenger · Instagram</span>
+      <h1>Turn your conversations <em>into sales</em></h1>
+      <p class="sub">Every comment and every message you already have is an order <b>missing one timely reply</b>. Spiders Bot answers in a second and walks the customer all the way to a confirmed order — while you sleep.</p>
+      <div class="cta">
+        <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary btn-lg">Try 7 days free</a>
+        <a href="#leak" class="btn btn-ghost btn-lg">Calculate what you lose ↓</a>
+        <div class="guar">
+          <span><i>✓</i> No credit card</span><span><i>✓</i> Official WhatsApp from Meta</span><span><i>✓</i> Cancel anytime</span>
+        </div>
       </div>
-      <div class="trust-note">🎁 <span><b>7 days free</b> — no credit card, no commitment</span></div>
     </div>
-    <div class="hero-visual">
-      <img class="ill" fetchpriority="high" width="1200" height="800" src="../assets/hero.jpg" alt="Conversation automation across WhatsApp, Messenger, and Instagram turning into sales">
+    <div class="eqz" role="img" aria-label="From an Instagram comment to a confirmed order inside the chat">
+      <div class="c">
+        <div class="tag"><i style="background:#E1306C"></i> Comment on Instagram · 21:44</div>
+        <div class="cmt"><span class="av"></span><span class="tx"><b>Ahmad S.</b> — How much? 🔥</span></div>
+      </div>
+      <div class="lnk"><span>Auto reply · 0.8 seconds</span><i></i></div>
+      <div class="c">
+        <div class="tag"><i style="background:#25D366"></i> Direct message</div>
+        <div class="b us">Hi Ahmad 👋 It is $45, free delivery over $100</div>
+        <div class="b them">I want the black one, size L</div>
+        <div class="b us">Done ✅ Cash on delivery — just send your address</div>
+      </div>
+      <div class="lnk"><span>No human involved</span><i></i></div>
+      <div class="c win">
+        <div class="tag"><i style="background:#0E7C61"></i> Order confirmed</div>
+        <div class="ord">
+          <span class="im"></span>
+          <span><span class="nm">Winter jacket — Black · L</span><span class="st">✓ Confirmed and logged</span></span>
+          <span class="amt">$45</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -370,110 +502,74 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
   </div>
 </section>
 
-<!-- ================= الركائز الخمس ================= -->
-<div id="features"></div>
-
-<!-- الركيزة ١: تواصل تلقائي -->
-<section class="section">
-  <div class="wrap pillar">
-    <div class="pcopy">
-      <span class="eyebrow">1 · Messaging channels</span>
-      <h2>Automated conversations that never sleep</h2>
-      <p class="lead">Connect official WhatsApp (Cloud API), Messenger, and Instagram, then switch on comment automation: reply by keyword, turn a comment into a private message, and even answer older comments automatically.</p>
-      <ul class="benefits">
-        <li><span class="ck">✓</span><span>Never miss a message or a comment — <b>instant replies 24/7</b> across every channel.</span></li>
-        <li><span class="ck">✓</span><span>Turn every public comment into <b>a private conversation</b> and a real chance to sell.</span></li>
-        <li><span class="ck">✓</span><span>WhatsApp <b>official and approved</b> with your own numbers and brand identity.</span></li>
-        <li><span class="ck">✓</span><span>Keyword replies work even on your <b>older posts</b>.</span></li>
-      </ul>
-      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Connect your channels</a>
+<!-- ================= التسريب: الحاسبة ================= -->
+<section class="section leak" id="leak">
+  <div class="wrap">
+    <div class="section-head" style="text-align:right;margin-bottom:0">
+      <h2>But how much of it leaks away?</h2>
+      <p style="margin-inline:0">Not a slogan. Move the sliders to match your own numbers and see what you lose each month from customers who already reached you.</p>
     </div>
-    <div class="pvis">
-      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar1-comments.jpg" alt="Comment automation: automatic replies and turning a comment into a private message on Facebook, Instagram, and WhatsApp">
+    <div class="calc">
+      <div class="calc-l">
+        <div class="calc-row"><label for="rMsg">Messages and comments per day <b><span id="cMsg">80</span></b></label><input type="range" id="rMsg" min="10" max="400" step="10" value="80"></div>
+        <div class="calc-row"><label for="rLost">How many get no timely reply <b><span id="cLost">30</span>%</b></label><input type="range" id="rLost" min="5" max="70" step="5" value="30"></div>
+        <div class="calc-row"><label for="rVal">Your profit per order <b>$<span id="cVal">10</span></b></label><input type="range" id="rVal" min="2" max="60" step="1" value="10"></div>
+        <div class="calc-row"><label for="rConv">How many would have bought <b><span id="cConv">8</span>%</b></label><input type="range" id="rConv" min="1" max="30" step="1" value="8"></div>
+      </div>
+      <div class="calc-r">
+        <div class="k">You are losing</div>
+        <div class="big">$<span id="oLoss">576</span></div>
+        <div class="note">per month — from customers who reached you and got no reply</div>
+        <div class="vs">
+          <div class="k">Spiders Bot costs you</div>
+          <div class="v">$49 <s>per month</s></div>
+          <p>So if it wins back just <b id="oNeed">5</b> orders, it has paid for itself.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- الركيزة ٢: محادثات ذكية -->
+<!-- ================= السدّ ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head" style="text-align:right">
+      <h2>This is how we stop the leak</h2>
+      <p style="margin-inline:0">Three steps you set up once. They run on their own after that.</p>
+    </div>
+    <div class="fixgrid">
+      <div class="st">
+        <div class="n">STEP 1</div><h3>Catch every comment</h3><p>One keyword, set once on a post or on all of them — including the ones you published months ago.</p>
+        <div class="mini"><span class="k">Under the post</span>Ahmad S. — How much?<div class="p">Public reply: sent you the details ✉️</div></div>
+      </div>
+      <div class="st">
+        <div class="n">STEP 2</div><h3>Move it to a chat</h3><p>A direct message in the same second, on Instagram, Messenger or official WhatsApp.</p>
+        <div class="mini"><span class="k">Direct message</span>It is $45, free delivery over $100<div class="p">↳ AI answers his follow-up questions on its own</div></div>
+      </div>
+      <div class="st">
+        <div class="n">STEP 3</div><h3>Lock the order in</h3><p>Product and price, cash on delivery, and an automatic reminder if he stops halfway.</p>
+        <div class="mini"><span class="k">Two hours later — if unfinished</span>The jacket is still held for you 🕐<div class="p">↳ Abandoned-cart recovery wins the sale back</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= لماذا نحن ================= -->
 <section class="section" style="background:var(--bg-soft)">
-  <div class="wrap pillar rev">
-    <div class="pcopy">
-      <span class="eyebrow">2 · AI and automation</span>
-      <h2>Smart conversations, no code</h2>
-      <p class="lead">Design the whole customer journey with a drag-and-drop flow builder, and add an AI agent (OpenAI / Anthropic / Google) backed by a knowledge base that understands your products and your FAQs.</p>
-      <ul class="benefits">
-        <li><span class="ck">✓</span><span>Build a journey from <b>welcome to sale</b> with no developer.</span></li>
-        <li><span class="ck">✓</span><span>An AI agent that answers in your language and learns from <b>your knowledge base</b>.</span></li>
-        <li><span class="ck">✓</span><span>Pick the AI provider that suits you: <b>OpenAI, Anthropic, or Google</b>.</span></li>
-        <li><span class="ck">✓</span><span>Smart branches and conditions answer each customer the right way.</span></li>
-      </ul>
-      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Try the flow builder</a>
+  <div class="wrap">
+    <div class="section-head" style="text-align:right">
+      <h2>Why not by hand, or with a cheap tool?</h2>
+      <p style="margin-inline:0">This is the comparison every merchant runs in his head. We would rather show it than let him guess.</p>
     </div>
-    <div class="pvis">
-      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar2-flow.jpg" alt="Drag-and-drop flow builder with an AI agent and a knowledge base — no code">
-    </div>
-  </div>
-</section>
-
-<!-- الركيزة ٣: بِع داخل المحادثة -->
-<section class="section">
-  <div class="wrap pillar">
-    <div class="pcopy">
-      <span class="eyebrow">3 · E-commerce</span>
-      <h2>Sell inside the conversation</h2>
-      <p class="lead">A complete store inside the chat: products, cart, coupons, and orders, a quick-order form, cash-on-delivery (COD) confirmation over WhatsApp, and automatic abandoned-cart reminders.</p>
-      <ul class="benefits">
-        <li><span class="ck">✓</span><span>Show, sell, and confirm the order <b>without leaving the chat</b>.</span></li>
-        <li><span class="ck">✓</span><span>Confirming <b>cash on delivery</b> over WhatsApp cuts down fake orders.</span></li>
-        <li><span class="ck">✓</span><span><b>Win back abandoned carts</b> with automatic reminders.</span></li>
-        <li><span class="ck">✓</span><span>Discount coupons and a quick-order form lift your conversion rate.</span></li>
-      </ul>
-      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Open your store</a>
-    </div>
-    <div class="pvis">
-      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar3-store.jpg" alt="An online store inside the conversation: product cards, cart, coupons, cash on delivery, and abandoned-cart reminders">
-    </div>
-  </div>
-</section>
-
-<!-- الركيزة ٤: سوّق ووسّع -->
-<section class="section" style="background:var(--bg-soft)">
-  <div class="wrap pillar rev">
-    <div class="pcopy">
-      <span class="eyebrow">4 · Marketing and growth</span>
-      <h2>Market and grow your audience</h2>
-      <p class="lead">Broadcast campaigns, automatic drip follow-ups, SMS and email, plus post scheduling and auto-publishing from RSS, YouTube, and WordPress.</p>
-      <ul class="benefits">
-        <li><span class="ck">✓</span><span>Reach thousands of customers with <b>targeted messages</b> in one click.</span></li>
-        <li><span class="ck">✓</span><span>Automatic follow-up sequences <b>nurture your leads</b> and grow sales.</span></li>
-        <li><span class="ck">✓</span><span>Multiple channels: WhatsApp,<b>SMS, and email</b> in a single campaign.</span></li>
-        <li><span class="ck">✓</span><span>Publish your content automatically from <b>RSS / YouTube / WordPress</b>.</span></li>
-      </ul>
-      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">Launch your first campaign</a>
-    </div>
-    <div class="pvis">
-      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar4-marketing.jpg" alt="Marketing and growth: broadcast campaigns, follow-up sequences, SMS and email, and auto-publishing from RSS and YouTube">
-    </div>
-  </div>
-</section>
-
-<!-- الركيزة ٥: أدر كل شيء -->
-<section class="section">
-  <div class="wrap pillar">
-    <div class="pcopy">
-      <span class="eyebrow">5 · Management and reporting</span>
-      <h2>Run everything from one place</h2>
-      <p class="lead">A unified inbox for every channel, live chat, contacts with labels and segments, real-time reports, and team management with fine-grained permissions.</p>
-      <ul class="benefits">
-        <li><span class="ck">✓</span><span>Every message from <b>every channel</b> in one inbox.</span></li>
-        <li><span class="ck">✓</span><span>Split your audience with<b>labels and segments</b> for sharper targeting.</span></li>
-        <li><span class="ck">✓</span><span>Reports <b>in real time</b> show performance as it happens.</span></li>
-        <li><span class="ck">✓</span><span>Add your team and assign <b>permissions</b> safely.</span></li>
-      </ul>
-      <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-primary">See the dashboard</a>
-    </div>
-    <div class="pvis">
-      <img class="ill" loading="lazy" width="1200" height="800" src="../assets/pillar5-manage.jpg" alt="Unified inbox, live chat, labelled contacts, real-time reports, and permission-based team management">
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <tr><th style="width:26%"></th><th>By hand — you and your staff</th><th>Unofficial tool</th><th class="us">Spiders Bot</th></tr>
+        <tr><td><b>Reply time</b></td><td>Minutes to hours</td><td>Fast</td><td class="us">Under a second · 24/7</td></tr>
+        <tr><td><b>Risk of a number ban</b></td><td>None</td><td class="no">Very high</td><td class="us">None — official WhatsApp from Meta</td></tr>
+        <tr><td><b>Comments</b></td><td class="no">Get lost</td><td>Partial</td><td class="us">Become private conversations</td></tr>
+        <tr><td><b>After hours and holidays</b></td><td class="no">Stopped</td><td>Running</td><td class="us">Running</td></tr>
+        <tr><td><b>Monthly cost</b></td><td>A salary</td><td>Cheap — it costs you your number</td><td class="us">From $19</td></tr>
+      </table>
     </div>
   </div>
 </section>
@@ -532,9 +628,30 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ================= نزع الخوف ================= -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head" style="text-align:right">
+      <h2>What is holding you back — said plainly</h2>
+      <p style="margin-inline:0">Three fears every merchant raises. Here are our answers before you ask.</p>
+    </div>
+    <div class="fears">
+      <div class="fear"><div class="q">"WhatsApp bans numbers"</div><p>It bans unofficial tools. We run on the official Cloud API from Meta, on your own number and under your brand name — the same way large companies do it.</p></div>
+      <div class="fear"><div class="q">"I tried a bot and it failed"</div><p>Usually it replied rigidly, or your number got banned. Ours understands phrasings you never scripted, and hands the chat to you whenever you want.</p></div>
+      <div class="fear"><div class="q">"I am not technical"</div><p>We set everything up in a half-hour session and hand it over working. Editing after that is drag and drop, with no code.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= الأسعار ================= -->
 <section class="section pricing" id="pricing">
   <div class="wrap">
+    <div class="anchor">
+      <span class="bit"><span class="l">You are losing</span><span class="v red">$<span id="aLoss">576</span></span></span>
+      <span class="arw">←</span>
+      <span class="bit"><span class="l">The fix costs you</span><span class="v grn">$49</span></span>
+      <span class="say">The difference stays in your pocket. And the 7-day trial comes before you pay anything.</span>
+    </div>
     <div class="section-head">
       <span class="eyebrow">Pricing</span>
       <h2>Plans for every stage</h2>
@@ -601,38 +718,6 @@ footer{background:var(--ink);color:#c3c7dd;padding:56px 0 30px}
           <li><span class="c">✓</span> Unlimited contacts + unlimited team</li>
         </ul>
         <a href="https://app.spidersbot.com/home/sign_up" class="btn btn-ghost">Start free</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= الأسئلة الشائعة ================= -->
-<section class="section" id="faq" style="background:var(--bg-soft)">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Frequently asked questions</span>
-      <h2>Got a question? We have the answer</h2>
-    </div>
-    <div class="faq-wrap">
-      <div class="faq-item">
-        <button class="faq-q">Do I need coding skills to use the platform? <span class="ar">+</span></button>
-        <div class="faq-a"><div>Not at all. Everything is built by drag and drop in the flow builder, and ready-made templates get you going in minutes with no code.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Is the WhatsApp connection official and safe? <span class="ar">+</span></button>
-        <div class="faq-a"><div>Yes. We use official WhatsApp through the Cloud API with your own numbers and brand identity, which keeps your account safe and stable.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Can I sell directly inside the conversation? <span class="ar">+</span></button>
-        <div class="faq-a"><div>Yes. You show your products, the customer adds them to the cart and confirms the order with cash on delivery over WhatsApp — all without leaving the chat.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How does the free trial work? <span class="ar">+</span></button>
-        <div class="faq-a"><div>You get 7 days free with every feature, no credit card and no commitment. You can upgrade or cancel at any time.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Can I manage all channels from one place? <span class="ar">+</span></button>
-        <div class="faq-a"><div>Absolutely. The unified inbox brings WhatsApp, Messenger, and Instagram together with live chat, reports, and permission-based team management in a single dashboard.</div></div>
       </div>
     </div>
   </div>
@@ -738,6 +823,25 @@ document.querySelectorAll('#cycleToggle button').forEach(b=>{
 });
 updatePrices();
 
+function NUM(n){return String(n);}
+
+/* ============ حاسبة التسريب — الرقم نفسه يتكرّر عند السعر ============ */
+(function(){
+  var K=['Msg','Lost','Val','Conv'], e={};
+  K.forEach(function(k){ e['r'+k]=document.getElementById('r'+k); e['c'+k]=document.getElementById('c'+k); });
+  if(!e.rMsg) return;
+  var oLoss=document.getElementById('oLoss'), oNeed=document.getElementById('oNeed'), aLoss=document.getElementById('aLoss');
+  function up(){
+    var m=+e.rMsg.value, l=+e.rLost.value, v=+e.rVal.value, c=+e.rConv.value;
+    e.cMsg.textContent=NUM(m); e.cLost.textContent=NUM(l); e.cVal.textContent=NUM(v); e.cConv.textContent=NUM(c);
+    var loss=Math.round(m*30*(l/100)*(c/100)*v);
+    oLoss.textContent=NUM(loss);
+    if(aLoss) aLoss.textContent=NUM(loss);
+    oNeed.textContent=NUM(Math.max(1,Math.ceil(49/Math.max(v,1))));
+  }
+  K.forEach(function(k){ e['r'+k].addEventListener('input',up); });
+  up();
+})();
 </script>
 </body>
 </html>
