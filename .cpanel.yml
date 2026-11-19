@@ -1,4 +1,19 @@
 ---
+# نشر الصفحة الرئيسية من git إلى ~/public_html.
+#
+# لماذا كل هذه المهامّ وليست rsync وحدها:
+#   ~/public_html جذرٌ مشترك — تحته الموقع الرئيسي و app.spidersbot.com
+#   و bazaartawfeer.com و shika-app. و rsync -a ينقل صلاحيات مجلّد
+#   المصدر إلى مجلّد الهدف، ومجلّد الاستنساخ 700. فأوّل نشرٍ بلا هذه
+#   المهامّ جعل الجذر 700 فسقطت الثلاثة بـ 403 دفعةً واحدة.
+#
+#   فالصلاحيات تُعاد صراحةً بعد كل نسخ: الجذر 755، والملفّات 644،
+#   والمجلّدات 755. وهي محدَّدة بـ assets و en فقط، فلا تمسّ مجلّدات
+#   المواقع الأخرى الساكنة تحت الجذر نفسه.
 deployment:
   tasks:
     - /usr/bin/rsync -a --exclude='.git' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='README-DEPLOY.txt' --exclude='README.md' /home/frd3ysh3yl6f/spidersbot-site/ /home/frd3ysh3yl6f/public_html/
+    - /usr/bin/chmod 755 /home/frd3ysh3yl6f/public_html
+    - /usr/bin/find /home/frd3ysh3yl6f/public_html -maxdepth 1 -type f -exec chmod 644 {} +
+    - /usr/bin/find /home/frd3ysh3yl6f/public_html/assets /home/frd3ysh3yl6f/public_html/en -type d -exec chmod 755 {} +
+    - /usr/bin/find /home/frd3ysh3yl6f/public_html/assets /home/frd3ysh3yl6f/public_html/en -type f -exec chmod 644 {} +
