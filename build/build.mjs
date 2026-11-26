@@ -185,6 +185,14 @@ markup = rep(markup,
   `    <a data-click="closemenu" href="#solutions" style="color:#fff;font-size:24px;font-weight:500;padding:14px 0;border-bottom:1px solid rgba(217,223,234,.12)">{{ t.navSolutions }}</a>\n    <a data-click="closemenu" href="#pricing" style="color:#fff;font-size:24px;font-weight:500;padding:14px 0;border-bottom:1px solid rgba(217,223,234,.12)">{{ t.navPricing }}</a>`, 1);
 
 // editor-only hints
+markup = rep(markup,
+  '<div style="display:grid;grid-template-columns:200px minmax(0,1fr)">',
+  '<div data-dashgrid style="display:grid;grid-template-columns:200px minmax(0,1fr)">', 1);
+
+markup = rep(markup,
+  '<div style="width:220px;height:36px;border:1px solid #E6EAF2;border-radius:999px;background:#fff;padding:0 14px;display:flex;align-items:center;font-size:12px;color:#8A94AB">',
+  '<div data-dbsearch style="width:220px;height:36px;border:1px solid #E6EAF2;border-radius:999px;background:#fff;padding:0 14px;display:flex;align-items:center;font-size:12px;color:#8A94AB">', 1);
+
 markup = markup.replace(/\s+hint-placeholder-(?:val|count)="[^"]*"/g, '');
 
 // style-hover -> real CSS classes
@@ -305,7 +313,7 @@ function setup() {
         });
       })(key);
     }
-    return { el: el, pin: pin, items: items, last: null };
+    return { el: el, pin: pin, items: items, last: null, fit: el.querySelector('[data-fit]') };
   });
   root.querySelectorAll('[data-fit]').forEach(function (fit) {
     var w = +fit.dataset.w, h = +fit.dataset.h;
@@ -317,10 +325,160 @@ function setup() {
     var inner = grid.clientWidth - (parseFloat(gcs.paddingLeft) || 0) - (parseFloat(gcs.paddingRight) || 0);
     var availW = stacked ? inner - 2 : fit.hasAttribute('data-wide') ? (inner - 32) * 2 / 3 - 2 : (inner - 32) / 2 - 2;
     var availH = stacked ? vh - padTop - (copy ? copy.offsetHeight : 0) - 64 - (innerWidth < 880 ? 60 : 0) : vh - padTop - 56;
-    var k = Math.max(0.3, Math.min(1, availW / w, availH / h));
-    fit.style.width = w * k + 'px'; fit.style.height = h * k + 'px';
-    fit.firstElementChild.style.transform = 'scale(' + k + ')';
+
+    /* على الهاتف لا يُملى المقياسُ بالعرض وحده.
+     *
+     * المشهد لوحةٌ عرضها ٦٤٠ إلى ٨٢٠ بكسل، فملاءمتها لعرض ٣٤٣ تعني
+     * مقياس ٠٫٥٢ أو أقلّ — ونصُّ البطاقات عندها خمسة بكسلات: اللوحة
+     * كاملةٌ ولا تُقرأ، وهذا ليس حفظاً للفكرة بل صورةٌ عنها.
+     *
+     * فنُلائم الارتفاع (وهو القيد الحقيقي داخل مشهدٍ مثبَّت بارتفاع
+     * الشاشة)، ونسمح بزيادةٍ عرضيّةٍ تُمرَّر بالإصبع لا تتجاوز ١٧٠
+     * بكسلاً — فيبقى ثلثا اللوحة مرئيين عند أول نظرة.                */
+    var phone = innerWidth < 700;
+    if (phone) availH = vh - padTop - (copy ? copy.offsetHeight : 0) - 28;
+
+    var k = phone
+      ? Math.min(1, availH / h, (availW + 170) / w)
+      : Math.min(1, availW / w, availH / h);
+
+    fit.__w = w; fit.__h = h; fit.__availW = availW;
+    fit.__k = Math.max(0.3, k);
+    fit.__shift = 0;
+    fit.__lastP = undefined;
+    applyFit(fit);
   });
+
+  /* الاستكشاف قبل العرض لا أثناءه.
+     لو تُرك القياس للتمرير وحده، رأى الزائر اللوحة تُصغَّر تحت عينه
+     حين يبلغ المشهدُ لحظته القصوى. فنُشغّل الحركة هنا على ستّ لقطات
+     بلا رسمٍ بينها — فالقياس يتمّ والتصحيح يثبت قبل أن يُرى شيء.    */
+  scenes.forEach(function (sc) {
+    if (!sc.fit) return;
+    for (var t = 0.35; t < 1.01; t += 0.13) {
+      for (var j = 0; j < sc.items.length; j++) apply(sc.items[j].node, interp(sc.items[j].kfs, t), RTL);
+      sc.fit.__lastP = undefined;
+      settleFit(sc.fit, t);
+    }
+    sc.last = null;   // فالحالة الحقيقية تُعاد في أول tick
+  });
+}
+
+/* رسمُ الملاءمة: مقياسٌ وإزاحةٌ وحاشيةُ تمرير، من حالةٍ محفوظة.
+   فُصلت عن الحساب لأن settleFit يُعيد الرسم بقيمٍ مصحّحة.            */
+function applyFit(fit) {
+  var k = fit.__k, w = fit.__w, h = fit.__h, availW = fit.__availW, shift = fit.__shift || 0;
+  var contentW = (w + shift) * k;
+
+  fit.style.width = Math.min(contentW, availW) + 'px';
+  fit.style.height = h * k + 'px';
+  fit.firstElementChild.style.transform =
+    (shift ? 'translateX(' + (shift * k) + 'px) ' : '') + 'scale(' + k + ')';
+
+  /* التمرير الأفقي: الطبقة المقيسة مطلقةُ الموضع، فلا تُنشئ فيضاً
+     يُمرَّر بنفسها — حاشيةٌ بعرض اللوحة المقيسة هي ما يمنح الصندوق
+     محتوىً يُمرَّر، والطبقةُ تطفو فوقها وتتحرّك معها.                */
+  var spacer = fit.querySelector('[data-pan-spacer]');
+  if (contentW > availW + 1) {
+    fit.style.overflowX = 'auto'; fit.style.overflowY = 'hidden';
+    fit.setAttribute('data-panned', '');
+    if (!spacer) {
+      spacer = document.createElement('i');
+      spacer.setAttribute('data-pan-spacer', '');
+      spacer.style.cssText = 'display:block;height:1px;flex:none';
+      fit.appendChild(spacer);
+    }
+    spacer.style.width = contentW + 'px';
+
+    /* يُفتَح المشهد على وسط اللوحة لا على طرفها. وطريقة التوسيط
+       تختلف باختلاف المتصفّح في الاتجاه من اليمين إلى اليسار: بعضها
+       يجعل الصفر عند اليمين والسالب يساراً، وبعضها الصفر عند اليسار.
+       فنجرّب الموجب، فإن لم يتحرّك فهو المذهب الآخر.
+       ولا يُعاد التوسيط إلّا إن تغيّر مقدار التمرير، فإعادةُ ضبطه في
+       كلّ setup() (والخطوط تُحمَّل فتستدعيه) تخطف اللوحة من يد من
+       يسحبها.                                                        */
+    var span = Math.max(0, contentW - availW);
+    if (fit.__pan !== span) {
+      fit.__pan = span;
+      fit.scrollLeft = span / 2;
+      if (fit.scrollLeft === 0 && span > 0) fit.scrollLeft = -span / 2;
+    }
+  } else {
+    fit.__pan = 0;
+    fit.style.overflowX = ''; fit.style.overflowY = '';
+    fit.removeAttribute('data-panned');
+    if (spacer) spacer.remove();
+  }
+}
+
+/* تصحيحٌ بعد الاستقرار: اللوحة قد تتجاوز صندوقها المُعلَن.
+ *
+ * data-w يصف الصندوق المرسوم، لكن التحريك يُزيح بطاقاتٍ خارجه —
+ * في مشهد «من تعليق إلى رسالة» تستقرّ بطاقةٌ على بعد مئة بكسلٍ قبل
+ * حافّة الصندوق. على شاشةٍ عريضة لا يُلاحَظ، وعلى اللوحيّ تُقصّ عند
+ * حافّة النافذة. والقصّ من جهة البداية في صفحةٍ من اليمين إلى اليسار
+ * لا يُنشئ شريط تمريرٍ يكشفه: يختفي ثلث البطاقة بصمت.
+ *
+ * فبدل أن نخمّن مقدار التجاوز لكلّ مشهد ونُجمّده رقماً، نقيسه مرّةً
+ * بعد أن يستقرّ المشهد: إن تجاوز، صُغِّر المقياس بنسبة التجاوز
+ * (والصندوق يضيق فيتوسّط أكثر، فيعود المُزاح إلى الشاشة)؛ وإن كانت
+ * اللوحة ممرَّرةً أصلاً أُزيحت داخل صندوقها وزِيد مدى التمرير.
+ *
+ * القياس من الواقع لا من جدول، فتعديلُ التصميم لاحقاً يُصحَّح وحده.  */
+function settleFit(fit, p) {
+  /* القياس يتكرّر على طول المشهد لا مرّةً واحدة.
+     الإزاحة عابرة: البطاقة تبلغ أقصى بُعدها في منتصف المشهد ثم تعود
+     قليلاً، فقياسٌ واحدٌ عند عتبةٍ بعينها يرى لحظةً لا القصّة. ولأن
+     كلّ تصحيحٍ يُصغّر ولا يُكبّر، تستقرّ القيمة عند أسوأ لحظةٍ مرّت
+     ولا تتذبذب. والقياس مخنوقٌ بفارق ٣٪ من تقدّم المشهد، فلا يُقاس
+     في كلّ إطار.                                                    */
+  if (fit.__lastP !== undefined && Math.abs(p - fit.__lastP) < 0.03) return;
+  fit.__lastP = p;
+
+  var box = fit.getBoundingClientRect(), minL = box.left, maxR = box.right;
+  fit.querySelectorAll('*').forEach(function (n) {
+    if (n.hasAttribute && n.hasAttribute('data-pan-spacer')) return;
+    var r = n.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) return;
+    /* الشفّاف لا يُحسَب: البطاقات تدخل المشهد من خارجه وهي غير مرئية،
+       فقياسُها في لحظة الدخول يُضخّم حدود اللوحة بما لا يراه أحد —
+       فيُصغَّر المشهد كلّه لأجل شبحٍ عابر.                          */
+    if (+getComputedStyle(n).opacity < 0.5) return;
+    if (r.left < minL) minL = r.left;
+    if (r.right > maxR) maxR = r.right;
+  });
+
+  if (fit.hasAttribute('data-panned')) {
+    /* الإزاحة محدودةٌ بثمانين بكسلاً من إحداثيات اللوحة: زيادتها
+       بلا حدٍّ تُطيل التمرير حتى يصير المشهد شريطاً يُسحب، وقد
+       قرّرنا ألّا يغيب منه أكثر من الثلث.                           */
+    var need = box.left - minL;
+    if (need > 1) {
+      fit.__shift = Math.min(80, fit.__shift + need / fit.__k);
+      applyFit(fit);
+    }
+    return;
+  }
+
+  /* الحدّ بكسلان لا ثمانية: على الشاشة العريضة تقترب البطاقة المُزاحة
+     من الحافّة عمداً في التصميم، فحدٌّ متسامحٌ يُصغّر اللوحة على سطح
+     المكتب بلا داعٍ — والمطلوب إنقاذُ ما يُقصّ لا إعادةُ تنضيد ما
+     صُمّم.                                                          */
+  var needL = 2 - minL, needR = maxR - (innerWidth - 2);
+  if (needL <= 1 && needR <= 1) return;
+
+  /* المقياس يُحَلّ مباشرةً لا يُنقَص بنسبة التجاوز.
+     التجاوز من جهةٍ واحدة، فقسمةُ المدى على المتاح تُنقص المقياس
+     قُضاضةً صغيرة كلّ مرّة ولا تبلغ الحلّ. والعلاقة معروفة:
+     الصندوق يثبت بطرفٍ ويضيق من الآخر، فعرضُ اللوحة مع تجاوزها
+     يجب أن يسع ما بين ذلك الطرف وحافّة الشاشة.                     */
+  var bleedL = Math.max(0, box.left - minL) / fit.__k;
+  var bleedR = Math.max(0, maxR - box.right) / fit.__k;
+  var kL = needL > 1 ? (box.right - 2) / (fit.__w + bleedL) : fit.__k;
+  var kR = needR > 1 ? ((innerWidth - 2) - box.left) / (fit.__w + bleedR) : fit.__k;
+
+  fit.__k = Math.max(0.3, Math.min(fit.__k, kL, kR));
+  applyFit(fit);
 }
 
 function req() { if (!raf) raf = requestAnimationFrame(tick); }
@@ -336,6 +494,7 @@ function tick() {
     if (sc.last === p) continue;
     sc.last = p;
     for (var j = 0; j < sc.items.length; j++) apply(sc.items[j].node, interp(sc.items[j].kfs, p), RTL);
+    if (sc.fit && p > 0.2) settleFit(sc.fit, p);
   }
   navTheme();
   smarkTick();
@@ -553,6 +712,48 @@ a[data-langswitch]{display:inline-flex;align-items:center;justify-content:center
   .dc-narrow{display:contents!important}
   [data-bcols]{grid-template-columns:minmax(0,1fr)!important}
 }
+
+/* لوحة التحكّم في المشهد ٠٧ شبكةٌ من شريطٍ جانبيّ بعرض ٢٠٠ بكسل وصدرٍ
+   مرن. دون ٨٨٠ بكسل لا يبقى للصدر ما يكفي، فيفيض ثمانيةٌ وستّون عنصراً
+   خارج الشاشة — ولأن الصفحة من اليمين إلى اليسار، يخرج الفائض من جهة
+   البداية فلا يُنشئ شريط تمريرٍ يكشفه: يُقصّ بصمتٍ ولا يراه أحد.
+   فالشريط الجانبيّ يُطوى كما يُطوى في أي لوحةٍ حقيقية على الهاتف.      */
+@media (max-width:879px){
+  [data-dashgrid]{grid-template-columns:minmax(0,1fr)!important}
+  [data-dashgrid] > aside{display:none!important}
+  /* حقل البحث عرضه ٢٢٠ بكسلاً، لكنه عنصرُ فليكس يحمل نصّاً فلا ينزل
+     تحت عرض نصّه (min-width:auto) — فيتمدّد إلى ٣١٢ ويدفع الصفّ خارج
+     الشاشة. فنسمح له بالانكماش ونقصّ نصّه بثلاث نقاط.                */
+  [data-dbsearch]{
+    min-width:0!important; width:auto!important; flex:1 1 120px;
+    display:block!important; line-height:34px;
+    overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+  }
+  /* ومجموعةُ البحث والصور تأخذ سطراً كاملاً فتنكمش داخله. وبلا هذا
+     تبقى المجموعة بعرض محتواها فتخرج من الشاشة — وهو ما كان يحدث في
+     النسخة الإنجليزية وحدها، لأن نصّها أطول.                        */
+  [data-dashgrid] main > div:first-child{flex-wrap:wrap}
+  [data-dashgrid] main > div:first-child > div{min-width:0}
+  [data-dashgrid] main > div:first-child > div:last-child{flex:1 1 100%}
+}
+
+/* على الهاتف تُقلَّص حشوة المشهد العليا: هي لتجاوز الشريط الثابت،
+   والشريط أقصر على الهاتف. وكلّ بكسلٍ يُستردّ هنا يذهب إلى مقياس
+   اللوحة، فالارتفاع هو القيد داخل مشهدٍ مثبَّت بارتفاع الشاشة.       */
+@media (max-width:700px){
+  section[data-scene] > div:first-child{padding-top:84px!important}
+}
+
+/* لوحةٌ أعرض من الشاشة تُمرَّر بالإصبع بدل أن تُصغَّر حتى تُقرأ.
+   والحافّة تتلاشى لتقول إن وراءها بقيّة — فالمقصوص بحدٍّ حادّ يبدو
+   خطأً، والمتلاشي يبدو دعوة.                                          */
+[data-panned]{
+  overscroll-behavior-x:contain;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to left,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);
+  mask-image:linear-gradient(to left,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);
+}
+[data-panned]::-webkit-scrollbar{display:none}
 @media (prefers-reduced-motion:reduce){
   [data-a],[data-reveal]{transition:none!important}
 }
